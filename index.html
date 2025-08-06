@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -41,7 +42,6 @@
     </style>
 </head>
 <body>
-    
     <!-- Halaman Login -->
     <div id="loginPage" class="login-container flex items-center justify-center p-4">
         <div class="form-container rounded-2xl p-8 w-full max-w-md">
@@ -98,45 +98,6 @@
                     </div>
                     
                     <div class="flex items-center space-x-4">
-                        <div class="flex space-x-1 flex-wrap">
-                            <button onclick="showPage('dashboard')" 
-                                    class="nav-button bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                                Dashboard
-                            </button>
-                            <button onclick="showPage('pendaftaran')" 
-                                    class="nav-button bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                                Pendaftaran
-                            </button>
-                            <button onclick="showPage('rawatJalan')" 
-                                    class="nav-button bg-teal-600 hover:bg-teal-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                                Rawat Jalan
-                            </button>
-                            <button onclick="showPage('rawatInap')" 
-                                    class="nav-button bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                                Rawat Inap
-                            </button>
-                            <button onclick="showPage('gawatDarurat')" 
-                                    class="nav-button bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                                IGD
-                            </button>
-                            <button onclick="showPage('dataPasien')" 
-                                    class="nav-button bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                                Data Pasien
-                            </button>
-                            <button onclick="showPage('pelepasanInformasi')" 
-                                    class="nav-button bg-orange-600 hover:bg-orange-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                                Pelepasan Info
-                            </button>
-                            <button onclick="showPage('statistik')" 
-                                    class="nav-button bg-cyan-600 hover:bg-cyan-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                                Statistik
-                            </button>
-                            <button onclick="showPage('grafikBarberJohnson')" 
-                                    class="nav-button bg-pink-600 hover:bg-pink-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                                Grafik BJ
-                            </button>
-                        </div>
-                        
                         <div class="flex items-center space-x-4">
                             <div class="flex items-center space-x-2 text-gray-600 bg-gray-50 px-4 py-2 rounded-lg">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -151,6 +112,45 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                                 </svg>
                                 <span>Logout</span>
+                            </button>
+                        </div>
+                        
+                        <div class="flex space-x-2 flex-wrap">
+                            <button onclick="showPage('dashboard')" 
+                                    class="nav-button bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium">
+                                Dashboard
+                            </button>
+                            <button onclick="showPage('pendaftaran')" 
+                                    class="nav-button bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium">
+                                Pendaftaran Pasien
+                            </button>
+                            <button onclick="showPage('rawatJalan')" 
+                                    class="nav-button bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium">
+                                Rawat Jalan
+                            </button>
+                            <button onclick="showPage('rawatInap')" 
+                                    class="nav-button bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium">
+                                Rawat Inap
+                            </button>
+                            <button onclick="showPage('gawatDarurat')" 
+                                    class="nav-button bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium">
+                                Gawat Darurat
+                            </button>
+                            <button onclick="showPage('dataPasien')" 
+                                    class="nav-button bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium">
+                                Data Pasien
+                            </button>
+                            <button onclick="showPage('pelepasanInformasi')" 
+                                    class="nav-button bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium">
+                                Pelepasan Informasi
+                            </button>
+                            <button onclick="showPage('statistik')" 
+                                    class="nav-button bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg font-medium">
+                                Statistik
+                            </button>
+                            <button onclick="showPage('grafikBarberJohnson')" 
+                                    class="nav-button bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg font-medium">
+                                Grafik Barber Johnson
                             </button>
                         </div>
                     </div>
@@ -377,13 +377,37 @@
 
         <!-- Halaman Rawat Jalan -->
         <div id="rawatJalan" class="page page-content p-8 hidden">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Rawat Jalan</h2>
-                    <p class="text-gray-600">Daftarkan pasien untuk rawat jalan</p>
+            <div class="flex">
+                <!-- Sidebar Navigation -->
+                <div class="w-64 bg-white rounded-xl shadow-lg p-6 mr-8 h-fit">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Menu Navigasi</h3>
+                    <nav class="space-y-2">
+                        <button onclick="showPage('dashboard')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            🏠 Dashboard
+                        </button>
+                        <button onclick="showPage('pendaftaran')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            📝 Pendaftaran Pasien
+                        </button>
+                        <button onclick="showPage('rawatJalan')" class="w-full text-left px-4 py-2 bg-teal-100 text-teal-700 rounded-lg font-medium">
+                            🏥 Rawat Jalan
+                        </button>
+                        <button onclick="showPage('rawatInap')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            🛏️ Rawat Inap
+                        </button>
+                        <button onclick="showPage('gawatDarurat')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            🚨 Gawat Darurat
+                        </button>
+                    </nav>
                 </div>
-                
-                <div class="bg-white rounded-xl shadow-lg p-8">
+
+                <!-- Main Content -->
+                <div class="flex-1">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Rawat Jalan</h2>
+                        <p class="text-gray-600">Daftarkan pasien untuk rawat jalan</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8">
                         <form id="formRawatJalan" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">No. Rekam Medis *</label>
@@ -502,16 +526,41 @@
                     </div>
                 </div>
             </div>
+        </div>
 
         <!-- Halaman Rawat Inap -->
         <div id="rawatInap" class="page page-content p-8 hidden">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Rawat Inap</h2>
-                    <p class="text-gray-600">Daftarkan pasien untuk rawat inap</p>
+            <div class="flex">
+                <!-- Sidebar Navigation -->
+                <div class="w-64 bg-white rounded-xl shadow-lg p-6 mr-8 h-fit">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Menu Navigasi</h3>
+                    <nav class="space-y-2">
+                        <button onclick="showPage('dashboard')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            🏠 Dashboard
+                        </button>
+                        <button onclick="showPage('pendaftaran')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            📝 Pendaftaran Pasien
+                        </button>
+                        <button onclick="showPage('rawatJalan')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            🏥 Rawat Jalan
+                        </button>
+                        <button onclick="showPage('rawatInap')" class="w-full text-left px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium">
+                            🛏️ Rawat Inap
+                        </button>
+                        <button onclick="showPage('gawatDarurat')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            🚨 Gawat Darurat
+                        </button>
+                    </nav>
                 </div>
-                
-                <div class="bg-white rounded-xl shadow-lg p-8">
+
+                <!-- Main Content -->
+                <div class="flex-1">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Rawat Inap</h2>
+                        <p class="text-gray-600">Daftarkan pasien untuk rawat inap</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8">
                         <form id="formRawatInap" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">No. Rekam Medis *</label>
@@ -621,16 +670,41 @@
                     </div>
                 </div>
             </div>
+        </div>
 
         <!-- Halaman Gawat Darurat -->
         <div id="gawatDarurat" class="page page-content p-8 hidden">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Gawat Darurat</h2>
-                    <p class="text-gray-600">Daftarkan pasien untuk gawat darurat</p>
+            <div class="flex">
+                <!-- Sidebar Navigation -->
+                <div class="w-64 bg-white rounded-xl shadow-lg p-6 mr-8 h-fit">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Menu Navigasi</h3>
+                    <nav class="space-y-2">
+                        <button onclick="showPage('dashboard')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            🏠 Dashboard
+                        </button>
+                        <button onclick="showPage('pendaftaran')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            📝 Pendaftaran Pasien
+                        </button>
+                        <button onclick="showPage('rawatJalan')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            🏥 Rawat Jalan
+                        </button>
+                        <button onclick="showPage('rawatInap')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-200">
+                            🛏️ Rawat Inap
+                        </button>
+                        <button onclick="showPage('gawatDarurat')" class="w-full text-left px-4 py-2 bg-red-100 text-red-700 rounded-lg font-medium">
+                            🚨 Gawat Darurat
+                        </button>
+                    </nav>
                 </div>
-                
-                <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-red-500">
+
+                <!-- Main Content -->
+                <div class="flex-1">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Gawat Darurat</h2>
+                        <p class="text-gray-600">Daftarkan pasien untuk gawat darurat</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-red-500">
                         <form id="formIGD" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Nama Pasien *</label>
@@ -744,10 +818,11 @@
                     </div>
                 </div>
             </div>
+        </div>
 
         <!-- Halaman Data Pasien -->
-            <div id="dataPasien" class="page page-content p-8 hidden">
-                <div class="max-w-7xl mx-auto">
+        <div id="dataPasien" class="page page-content p-8 hidden">
+            <div class="max-w-7xl mx-auto">
                 <div class="mb-8">
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Data Pasien</h2>
                     <p class="text-gray-600">Kelola data pasien dari Rawat Jalan, Rawat Inap, dan Gawat Darurat</p>
@@ -863,8 +938,9 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Halaman Pelepasan Informasi -->
+        <!-- Halaman Pelepasan Informasi -->
         <div id="pelepasanInformasi" class="page page-content p-8 hidden">
             <div class="max-w-4xl mx-auto">
                 <div class="mb-8">
@@ -1335,19 +1411,6 @@
             </div>
         </div>
     </div>
-<script>
-  function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.add('hidden'));
-
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-      targetPage.classList.remove('hidden');
-    } else {
-      console.error('Page not found:', pageId);
-    }
-  }
-</script>
 
     <script>
         // Array untuk menyimpan data pasien
@@ -1778,49 +1841,44 @@
         
         // Navigation functions
         function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.add('hidden');
-            });
-            
+            // Hide all pages with class 'page'
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
             // Show selected page
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-            }
+            document.getElementById(pageId).classList.remove('hidden');
             
-            // Page-specific initialization
+            // Initialize page-specific content
             if (pageId === 'dashboard') {
+                // Update dashboard statistics
                 updateDashboardStatistics();
             } else if (pageId === 'rawatJalan') {
-                const noRMElement = document.getElementById('noRMRJ');
-                if (noRMElement && !noRMElement.value) {
-                    noRMElement.value = generateMedicalRecord();
+                // Generate nomor RM untuk rawat jalan jika belum ada
+                if (!document.getElementById('noRMRJ').value) {
+                    document.getElementById('noRMRJ').value = generateMedicalRecord();
                 }
             } else if (pageId === 'rawatInap') {
-                const noRMElement = document.getElementById('noRMRI');
-                if (noRMElement && !noRMElement.value) {
-                    noRMElement.value = generateMedicalRecord();
+                // Generate nomor RM untuk rawat inap jika belum ada
+                if (!document.getElementById('noRMRI').value) {
+                    document.getElementById('noRMRI').value = generateMedicalRecord();
                 }
+                // Populate dokter options
                 populateAllDokter('dokterRI');
             } else if (pageId === 'dataPasien') {
+                // Update data pasien dan statistik
                 updatePasienStatistics();
                 renderPasienTable();
-            } else if (pageId === 'pelepasanInformasi') {
-                // Reset form pelepasan informasi
-                resetFormPelepasan();
-            } else if (pageId === 'statistik') {
-                // Statistik page ready
-            } else if (pageId === 'grafikBarberJohnson') {
-                // Initialize Barber Johnson chart
-                setTimeout(() => {
-                    initializeBarberJohnsonChart();
-                }, 100);
+            }
+            
+            // Update active button styling
+            document.querySelectorAll('.nav-button').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-white', 'ring-opacity-60');
+            });
+            
+            // Add active styling to current button
+            const activeButton = document.querySelector(`button[onclick="showPage('${pageId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('ring-2', 'ring-white', 'ring-opacity-60');
             }
         }
-        
-        // Make showPage function globally accessible
-        window.showPage = showPage;
         
         function logout() {
             // Hide main app and show login page
@@ -2090,68 +2148,59 @@
         
         // Function untuk reset form pelepasan informasi
         function resetFormPelepasan() {
-            const form = document.getElementById('formPelepasan');
-            if (form) {
-                form.reset();
-                const bpjsField = document.getElementById('bpjsField');
-                if (bpjsField) {
-                    bpjsField.classList.add('hidden');
-                }
-                const namaPetugas = document.getElementById('namaPetugas');
-                if (namaPetugas) {
-                    namaPetugas.value = 'admin';
-                }
-            }
+            document.getElementById('formPelepasan').reset();
+            // Hide BPJS field
+            document.getElementById('bpjsField').classList.add('hidden');
+            document.querySelector('input[name="nomorJaminan"]').required = false;
+            // Reset nama petugas
+            document.getElementById('namaPetugas').value = 'admin';
         }
         
         // Functions untuk perhitungan statistik rumah sakit
         
         // Function untuk membuat Grafik Barber Johnson
         function updateBarberJohnsonChart() {
-            const canvas = document.getElementById('barberJohnsonChart');
-            if (!canvas) return;
+            const namaRS = document.getElementById('namaRS').value || 'RS Umum Daerah';
+            const namaBangsal = document.getElementById('namaBangsal').value || 'Bangsal Melati';
+            const periode = parseInt(document.getElementById('periode').value);
+            const tahun = document.getElementById('tahun').value || '2024';
+            const bor = parseFloat(document.getElementById('inputBOR').value);
+            const los = parseFloat(document.getElementById('inputLOS').value);
+            const toi = parseFloat(document.getElementById('inputTOI').value);
+            const bto = parseFloat(document.getElementById('inputBTO').value);
             
-            const namaRSElement = document.getElementById('namaRS');
-            const namaBangsalElement = document.getElementById('namaBangsal');
-            const periodeElement = document.getElementById('periode');
-            const tahunElement = document.getElementById('tahun');
-            const inputBORElement = document.getElementById('inputBOR');
-            const inputLOSElement = document.getElementById('inputLOS');
-            const inputTOIElement = document.getElementById('inputTOI');
-            const inputBTOElement = document.getElementById('inputBTO');
-            
-            const namaRS = namaRSElement ? namaRSElement.value || 'RS Umum Daerah' : 'RS Umum Daerah';
-            const namaBangsal = namaBangsalElement ? namaBangsalElement.value || 'Bangsal Melati' : 'Bangsal Melati';
-            const periode = periodeElement ? parseInt(periodeElement.value) || 30 : 30;
-            const tahun = tahunElement ? tahunElement.value || '2024' : '2024';
-            const bor = inputBORElement ? parseFloat(inputBORElement.value) || 75 : 75;
-            const los = inputLOSElement ? parseFloat(inputLOSElement.value) || 6.5 : 6.5;
-            const toi = inputTOIElement ? parseFloat(inputTOIElement.value) || 2.5 : 2.5;
-            const bto = inputBTOElement ? parseFloat(inputBTOElement.value) || 45 : 45;
+            // Validasi input
+            if (isNaN(bor) || isNaN(los) || isNaN(toi) || isNaN(bto)) {
+                alert('Harap lengkapi semua nilai indikator dengan benar');
+                return;
+            }
             
             // Update judul grafik
             const periodeTeks = periode === 30 ? 'Bulanan' : periode === 90 ? 'Triwulan' : 'Tahunan';
-            const judulElement = document.getElementById('judulGrafik');
-            if (judulElement) {
-                judulElement.textContent = `Grafik Barber Johnson - ${namaRS} - ${namaBangsal} - ${periodeTeks} ${tahun}`;
-            }
+            document.getElementById('judulGrafik').textContent = 
+                `Grafik Barber Johnson - ${namaRS} - ${namaBangsal} - ${periodeTeks} ${tahun}`;
             
             // Update display nilai
-            const displayBOR = document.getElementById('displayBOR');
-            const displayLOS = document.getElementById('displayLOS');
-            const displayTOI = document.getElementById('displayTOI');
-            const displayBTO = document.getElementById('displayBTO');
+            document.getElementById('displayBOR').textContent = bor + '%';
+            document.getElementById('displayLOS').textContent = los + ' hari';
+            document.getElementById('displayTOI').textContent = toi + ' hari';
+            document.getElementById('displayBTO').textContent = bto + ' kali';
             
-            if (displayBOR) displayBOR.textContent = bor + '%';
-            if (displayLOS) displayLOS.textContent = los + ' hari';
-            if (displayTOI) displayTOI.textContent = toi + ' hari';
-            if (displayBTO) displayBTO.textContent = bto + ' kali';
+            // Auto adjust zoom jika diperlukan
+            const zoomAdjusted = autoAdjustZoom(los, toi);
             
             // Gambar grafik
             drawBarberJohnsonChart(bor, los, toi, bto, periode);
             
             // Update interpretasi
             updateInterpretasi(bor, los, toi, bto);
+            
+            // Tampilkan notifikasi jika zoom disesuaikan otomatis
+            if (zoomAdjusted) {
+                setTimeout(() => {
+                    alert('Zoom grafik telah disesuaikan otomatis untuk menampilkan titik data dengan lebih baik.');
+                }, 100);
+            }
         }
         
         function drawBarberJohnsonChart(bor, los, toi, bto, periode) {
@@ -2395,20 +2444,16 @@
             const rekomendasiElement = document.getElementById('rekomendasi');
             
             // Update status efisiensi
-            if (statusElement) {
-                if (dalamDaerahEfisiensi) {
-                    statusElement.textContent = 'EFISIEN';
-                    statusElement.className = 'font-medium text-green-600';
-                } else {
-                    statusElement.textContent = 'TIDAK EFISIEN';
-                    statusElement.className = 'font-medium text-red-600';
-                }
+            if (dalamDaerahEfisiensi) {
+                statusElement.textContent = 'EFISIEN';
+                statusElement.className = 'font-medium text-green-600';
+            } else {
+                statusElement.textContent = 'TIDAK EFISIEN';
+                statusElement.className = 'font-medium text-red-600';
             }
             
             // Update posisi titik - koordinat (TOI, AvLOS)
-            if (posisiElement) {
-                posisiElement.textContent = `TOI: ${toi} hari, AvLOS: ${los} hari`;
-            }
+            posisiElement.textContent = `TOI: ${toi} hari, AvLOS: ${los} hari`;
             
             // Update rekomendasi
             let rekomendasi = [];
@@ -2435,68 +2480,100 @@
                 rekomendasi.push('Pertahankan kinerja yang baik');
             }
             
-            if (rekomendasiElement) {
-                rekomendasiElement.textContent = rekomendasi.join('; ');
-            }
+            rekomendasiElement.textContent = rekomendasi.join('; ');
         }
         
         // Functions untuk zoom control
         function zoomIn() {
-            if (zoomScale < 5.0) {
+            if (zoomScale < 5.0) { // Maksimal zoom 5x
                 zoomScale *= 1.5;
                 updateZoomLevel();
-                updateBarberJohnsonChart();
+                redrawChart();
             }
         }
         
         function zoomOut() {
-            if (zoomScale > 0.2) {
+            if (zoomScale > 0.2) { // Minimal zoom 0.2x (zoom out 5x)
                 zoomScale /= 1.5;
                 updateZoomLevel();
-                updateBarberJohnsonChart();
+                redrawChart();
             }
         }
         
         function resetZoom() {
             zoomScale = 1.0;
             updateZoomLevel();
-            updateBarberJohnsonChart();
+            redrawChart();
         }
         
         function updateZoomLevel() {
             const zoomPercentage = Math.round(zoomScale * 100);
-            const zoomElement = document.getElementById('zoomLevel');
-            if (zoomElement) {
-                zoomElement.textContent = zoomPercentage + '%';
-            }
+            document.getElementById('zoomLevel').textContent = zoomPercentage + '%';
         }
         
-        // Initialize chart when needed
-        function initializeChart() {
-            const canvas = document.getElementById('barberJohnsonChart');
-            if (canvas) {
-                updateBarberJohnsonChart();
-            }
+        function redrawChart() {
+            // Ambil nilai input saat ini dan gambar ulang grafik
+            const bor = parseFloat(document.getElementById('inputBOR').value) || 75;
+            const los = parseFloat(document.getElementById('inputLOS').value) || 6.5;
+            const toi = parseFloat(document.getElementById('inputTOI').value) || 2.5;
+            const bto = parseFloat(document.getElementById('inputBTO').value) || 45;
+            const periode = parseInt(document.getElementById('periode').value) || 30;
+            
+            drawBarberJohnsonChart(bor, los, toi, bto, periode);
         }
         
-        // Function untuk inisialisasi grafik Barber Johnson
-        function initializeBarberJohnsonChart() {
-            const canvas = document.getElementById('barberJohnsonChart');
-            if (canvas) {
-                // Set default values if not already set
-                const inputBOR = document.getElementById('inputBOR');
-                const inputLOS = document.getElementById('inputLOS');
-                const inputTOI = document.getElementById('inputTOI');
-                const inputBTO = document.getElementById('inputBTO');
-                
-                if (inputBOR && !inputBOR.value) inputBOR.value = '75';
-                if (inputLOS && !inputLOS.value) inputLOS.value = '6.5';
-                if (inputTOI && !inputTOI.value) inputTOI.value = '2.5';
-                if (inputBTO && !inputBTO.value) inputBTO.value = '45';
-                
-                updateBarberJohnsonChart();
+        function autoAdjustZoom(los, toi) {
+            // Auto adjust zoom jika titik data berada di luar area grafik
+            const currentMaxTOI = maxTOIZoom / zoomScale;  // X axis
+            const currentMaxLOS = maxLOSZoom / zoomScale;  // Y axis
+            
+            let needAdjustment = false;
+            let newZoomScale = zoomScale;
+            
+            // Cek apakah perlu zoom out untuk menampilkan titik data
+            if (toi > currentMaxTOI * 0.9 || los > currentMaxLOS * 0.9) {
+                // Hitung zoom scale yang diperlukan dengan margin 20%
+                const requiredScaleForTOI = maxTOIZoom / (toi * 1.2);
+                const requiredScaleForLOS = maxLOSZoom / (los * 1.2);
+                newZoomScale = Math.min(requiredScaleForTOI, requiredScaleForLOS);
+                needAdjustment = true;
             }
+            
+            // Batasi zoom scale
+            newZoomScale = Math.max(0.1, Math.min(5.0, newZoomScale));
+            
+            if (needAdjustment && Math.abs(newZoomScale - zoomScale) > 0.1) {
+                zoomScale = newZoomScale;
+                updateZoomLevel();
+                return true;
+            }
+            
+            return false;
         }
+        
+        // Initialize grafik saat halaman dimuat
+        window.addEventListener('load', function() {
+            // Delay untuk memastikan semua elemen sudah dimuat
+            setTimeout(() => {
+                if (document.getElementById('barberJohnsonChart')) {
+                    updateBarberJohnsonChart();
+                    
+                    // Tambahkan event listener untuk mouse wheel zoom
+                    const canvas = document.getElementById('barberJohnsonChart');
+                    canvas.addEventListener('wheel', function(e) {
+                        e.preventDefault();
+                        
+                        if (e.deltaY < 0) {
+                            // Scroll up = zoom in
+                            zoomIn();
+                        } else {
+                            // Scroll down = zoom out
+                            zoomOut();
+                        }
+                    });
+                }
+            }, 500);
+        });
         
         // Function untuk hitung BOR (Bed Occupancy Rate)
         function hitungBOR() {
@@ -2642,32 +2719,5 @@
             document.getElementById('hasilBTO').classList.remove('hidden');
         }
     </script>
-
-    <!-- Halaman Pelepasan Informasi (Tambahan) -->
-    <div id="pelepasanInformasiTambahan" class="page page-content p-8 hidden">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Pelepasan Informasi</h2>
-            <p class="text-gray-600 mb-6">Halaman untuk mengelola permintaan pelepasan informasi pasien.</p>
-            <!-- Konten formulir atau tabel pelepasan informasi -->
-        </div>
-    </div>
-
-    <!-- Halaman Statistik (Tambahan) -->
-    <div id="statistikTambahan" class="page page-content p-8 hidden">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Statistik</h2>
-            <p class="text-gray-600 mb-6">Statistik pelayanan rumah sakit akan ditampilkan di sini.</p>
-            <!-- Konten grafik, tabel, atau data -->
-        </div>
-    </div>
-
-    <!-- Halaman Grafik Barber Johnson (Tambahan) -->
-    <div id="grafikBarberJohnsonTambahan" class="page page-content p-8 hidden">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Grafik Barber Johnson</h2>
-            <p class="text-gray-600 mb-6">Visualisasi indikator-indikator mutu rumah sakit.</p>
-            <!-- Konten chart atau grafik -->
-        </div>
-    </div>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96aa9251579efd40',t:'MTc1NDQ0MTc1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96aae1d8c30afdc0',t:'MTc1NDQ0NTAxNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
