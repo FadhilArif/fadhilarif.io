@@ -2149,6 +2149,8 @@
         function drawBarberJohnsonChart(bor, los, toi, bto, periode) {
             const canvas = document.getElementById('barberJohnsonChart');
             const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetWidth * 0.75;
        
             // Clear canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
