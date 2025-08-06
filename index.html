@@ -38,6 +38,12 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: calc(100vh - 80px);
         }
+        /* CSS tambahan */
+.grafik-wrapper {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+}
+
     </style>
 </head>
 <body>
@@ -1209,9 +1215,10 @@
                     </div>
                     
                     <div class="flex justify-center">
-                      <div class="relative w-full overflow-auto">
-  <canvas id="barberJohnsonChart" class="w-full max-w-full h-auto border border-gray-300 rounded-lg"></canvas>
+               <div class="grafik-wrapper overflow-auto touch-pan-x touch-pan-y" style="max-width: 100%; overflow: auto;">
+  <canvas id="barberJohnsonChart" class="border border-gray-300 rounded-lg" style="min-width: 600px;"></canvas>
 </div>
+
                             
                             <!-- Zoom Controls -->
                             <div class="absolute top-4 right-4 flex flex-col space-y-2">
@@ -2142,8 +2149,7 @@
         function drawBarberJohnsonChart(bor, los, toi, bto, periode) {
             const canvas = document.getElementById('barberJohnsonChart');
             const ctx = canvas.getContext('2d');
-               canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetWidth * 0.75;
+       
             // Clear canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
