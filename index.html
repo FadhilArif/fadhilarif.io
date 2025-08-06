@@ -84,80 +84,83 @@
     <!-- Aplikasi Utama -->
     <div id="mainApp" class="hidden">
         <!-- Navbar -->
-        <nav class="bg-white shadow-lg border-b-2 border-blue-500">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="flex justify-between items-center py-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                            </svg>
-                        </div>
-                        <h1 class="text-xl font-bold text-gray-800">Sistem Rumah Sakit</h1>
-                    </div>
-                    
-                    <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-4">
-                            <div class="flex items-center space-x-2 text-gray-600 bg-gray-50 px-4 py-2 rounded-lg">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                </svg>
-                                <span>Selamat datang, <strong id="currentUser">admin</strong></span>
-                            </div>
-                            
-                            <button onclick="logout()" 
-                                    class="nav-button bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium flex items-center space-x-2">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                                </svg>
-                                <span>Logout</span>
-                            </button>
-                        </div>
-                        
-                        <div class="flex space-x-2 flex-wrap">
-                            <button onclick="showPage('dashboard')" 
-                                    class="nav-button bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium">
-                                Dashboard
-                            </button>
-                            <button onclick="showPage('pendaftaran')" 
-                                    class="nav-button bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium">
-                                Pendaftaran Pasien
-                            </button>
-                            <button onclick="showPage('rawatJalan')" 
-                                    class="nav-button bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium">
-                                Rawat Jalan
-                            </button>
-                            <button onclick="showPage('rawatInap')" 
-                                    class="nav-button bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium">
-                                Rawat Inap
-                            </button>
-                            <button onclick="showPage('gawatDarurat')" 
-                                    class="nav-button bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium">
-                                Gawat Darurat
-                            </button>
-                            <button onclick="showPage('dataPasien')" 
-                                    class="nav-button bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium">
-                                Data Pasien
-                            </button>
-                            <button onclick="showPage('pelepasanInformasi')" 
-                                    class="nav-button bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium">
-                                Pelepasan Informasi
-                            </button>
-                            <button onclick="showPage('statistik')" 
-                                    class="nav-button bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg font-medium">
-                                Statistik
-                            </button>
-                            <button onclick="showPage('grafikBarberJohnson')" 
-                                    class="nav-button bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg font-medium">
-                                Grafik Barber Johnson
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+      <!-- Navbar -->
+<nav class="bg-white shadow-lg border-b-2 border-blue-500">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo dan judul -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+            </path>
+          </svg>
+        </div>
+        <h1 class="text-xl font-bold text-gray-800">Sistem Rumah Sakit</h1>
+      </div>
 
-        <!-- Halaman Dashboard -->
+      <!-- Hamburger (mobile) -->
+      <button class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMobileMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Menu kanan (desktop) -->
+      <div class="hidden md:flex items-center space-x-4">
+        <div class="flex items-center space-x-2 text-gray-600 bg-gray-50 px-4 py-2 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+            </path>
+          </svg>
+          <span>Selamat datang, <strong id="currentUser">admin</strong></span>
+        </div>
+
+        <button onclick="logout()"
+          class="nav-button bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium flex items-center space-x-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+            </path>
+          </svg>
+          <span>Logout</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu navigasi -->
+    <div id="mobileMenu" class="hidden md:flex flex-wrap gap-2 pb-4 mt-2">
+      <button onclick="showPage('dashboard')"
+        class="nav-button bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium">Dashboard</button>
+      <button onclick="showPage('pendaftaran')"
+        class="nav-button bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium">Pendaftaran
+        Pasien</button>
+      <button onclick="showPage('rawatJalan')"
+        class="nav-button bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium">Rawat Jalan</button>
+      <button onclick="showPage('rawatInap')"
+        class="nav-button bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium">Rawat
+        Inap</button>
+      <button onclick="showPage('gawatDarurat')"
+        class="nav-button bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium">Gawat
+        Darurat</button>
+      <button onclick="showPage('dataPasien')"
+        class="nav-button bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium">Data
+        Pasien</button>
+      <button onclick="showPage('pelepasanInformasi')"
+        class="nav-button bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium">Pelepasan
+        Informasi</button>
+      <button onclick="showPage('statistik')"
+        class="nav-button bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg font-medium">Statistik</button>
+      <button onclick="showPage('grafikBarberJohnson')"
+        class="nav-button bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg font-medium">Grafik Barber
+        Johnson</button>
+    </div>
+  </div>
+</nav>
+
         <div id="dashboard" class="page page-content p-8">
             <div class="max-w-7xl mx-auto">
                 <div class="mb-8">
