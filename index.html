@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Manajemen Rumah Sakit</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .hidden {
-            display: none;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        .login-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .form-container {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-button {
-            transition: all 0.3s ease;
-        }
-        
-        .nav-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .page-content {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: calc(100vh - 80px);
-        }
-    </style>
+   <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sistem Manajemen Rumah Sakit</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Style Kustom -->
+  <style>
+    /* Sembunyikan elemen */
+    .hidden {
+      display: none;
+    }
+
+    /* Font utama */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Tampilan halaman login */
+    .login-container {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    /* Kartu form login */
+    .form-container {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Navigasi tombol hover */
+    .nav-button {
+      transition: all 0.3s ease;
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Konten utama halaman */
+    .page-content {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: calc(100vh - 80px);
+    }
+  </style>
+</head>
+
 </head>
 <body>
     <!-- Halaman Login -->
