@@ -1209,8 +1209,9 @@
                     </div>
                     
                     <div class="flex justify-center">
-                        <div class="relative">
-                            <canvas id="barberJohnsonChart" width="800" height="600" class="border border-gray-300 rounded-lg"></canvas>
+                      <div class="relative w-full overflow-auto">
+  <canvas id="barberJohnsonChart" class="w-full max-w-full h-auto border border-gray-300 rounded-lg"></canvas>
+</div>
                             
                             <!-- Zoom Controls -->
                             <div class="absolute top-4 right-4 flex flex-col space-y-2">
@@ -2141,7 +2142,8 @@
         function drawBarberJohnsonChart(bor, los, toi, bto, periode) {
             const canvas = document.getElementById('barberJohnsonChart');
             const ctx = canvas.getContext('2d');
-            
+               canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetWidth * 0.75;
             // Clear canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
