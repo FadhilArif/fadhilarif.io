@@ -1338,7 +1338,19 @@
             'ANAK': ['Indah Dwi', 'Rahayu Widya'],
             'GIGI': ['Dr. Gigi 1', 'Dr. Gigi 2'] // Tambahan untuk poli gigi
         };
-        
+        function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+        page.classList.add('hidden');
+    });
+    document.getElementById(pageId).classList.remove('hidden');
+
+    // Tambahkan ini:
+    if (pageId === 'dataPasien') {
+        renderPasienTable(); // render ulang tabel pasien saat buka halaman data pasien
+    }
+}
+
         // Fungsi untuk generate nomor RM otomatis
         function generateMedicalRecord() {
             let newRM;
