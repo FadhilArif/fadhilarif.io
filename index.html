@@ -41,6 +41,7 @@
     </style>
 </head>
 <body>
+    
     <!-- Halaman Login -->
     <div id="loginPage" class="login-container flex items-center justify-center p-4">
         <div class="form-container rounded-2xl p-8 w-full max-w-md">
@@ -1334,6 +1335,19 @@
             </div>
         </div>
     </div>
+<script>
+  function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.add('hidden'));
+
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+      targetPage.classList.remove('hidden');
+    } else {
+      console.error('Page not found:', pageId);
+    }
+  }
+</script>
 
     <script>
         // Array untuk menyimpan data pasien
