@@ -1293,6 +1293,28 @@
     </div>
 
     <script>
+        function renderPasienTable() {
+    const tbody = document.getElementById('pasienTableBody');
+    tbody.innerHTML = ''; // Kosongkan isi sebelumnya
+
+    allPasienData.forEach((pasien, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${index + 1}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.noRM}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.namaPasien || pasien.nama}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.tanggalLahir || pasien.tglLahir}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.jenisKelamin}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.alamat}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.nomorTelepon || pasien.noTelepon}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.asalPasien}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.tanggalDaftar}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
         // Array untuk menyimpan data pasien
         let pasienList = [];
         let dataRawatJalan = [];
@@ -1482,7 +1504,8 @@
                     id: Date.now() + Math.random() // ID unik
                 };
                 allPasienData.push(dataGabungan);
-                
+                renderPasienTable();
+
                 // Update dashboard statistics
                 updateDashboardStatistics();
                 
@@ -1550,7 +1573,8 @@
                     id: Date.now() + Math.random() // ID unik
                 };
                 allPasienData.push(dataGabungan);
-                
+                renderPasienTable();
+
                 // Update dashboard statistics
                 updateDashboardStatistics();
                 
@@ -1619,7 +1643,8 @@
                     id: Date.now() + Math.random() // ID unik
                 };
                 allPasienData.push(dataGabungan);
-                
+                renderPasienTable();
+
                 // Update dashboard statistics
                 updateDashboardStatistics();
                 
