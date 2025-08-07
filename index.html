@@ -7765,6 +7765,47 @@ canvas.height = canvas.offsetWidth * 0.75; // Rasio 4:3
         
         // Functions untuk perhitungan statistik rumah sakit
         
+  function hitungGDR() {
+    const meninggal = parseFloat(document.getElementById('gdrMeninggal').value);
+    const keluar = parseFloat(document.getElementById('gdrKeluar').value);
+    const hasil = keluar > 0 ? (meninggal / keluar) * 1000 : 0;
+    document.getElementById('nilaiGDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilGDR').classList.remove('hidden');
+    document.getElementById('statusGDR').textContent = hasil > 45 ? 'Tinggi' : 'Normal';
+  }
+
+  function hitungNDR() {
+    const meninggal48 = parseFloat(document.getElementById('ndrMeninggal48').value);
+    const keluar = parseFloat(document.getElementById('ndrKeluar').value);
+    const hasil = keluar > 0 ? (meninggal48 / keluar) * 1000 : 0;
+    document.getElementById('nilaiNDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilNDR').classList.remove('hidden');
+    document.getElementById('statusNDR').textContent = hasil > 10 ? 'Tinggi' : 'Ideal';
+  }
+
+  function hitungMDR() {
+    const kematian = parseFloat(document.getElementById('mdrKematianIbu').value);
+    const kelahiran = parseFloat(document.getElementById('mdrKelahiranHidup').value);
+    const hasil = kelahiran > 0 ? (kematian / kelahiran) * 1000 : 0;
+    document.getElementById('nilaiMDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilMDR').classList.remove('hidden');
+  }
+
+  function hitungPDR() {
+    const kematianOp = parseFloat(document.getElementById('pdrKematianOperasi').value);
+    const tindakan = parseFloat(document.getElementById('pdrJumlahOperasi').value);
+    const hasil = tindakan > 0 ? (kematianOp / tindakan) * 1000 : 0;
+    document.getElementById('nilaiPDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilPDR').classList.remove('hidden');
+  }
+
+  function hitungNnDR() {
+    const kematianBayi = parseFloat(document.getElementById('nndrKematianBayi').value);
+    const kelahiran = parseFloat(document.getElementById('nndrKelahiranHidup').value);
+    const hasil = kelahiran > 0 ? (kematianBayi / kelahiran) * 1000 : 0;
+    document.getElementById('nilaiNnDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilNnDR').classList.remove('hidden');
+  }
         // Function untuk membuat Grafik Barber Johnson
         function updateBarberJohnsonChart() {
             const namaRS = document.getElementById('namaRS').value || 'RS Umum Daerah';
@@ -8341,53 +8382,6 @@ canvas.height = canvas.offsetWidth * 0.75; // Rasio 4:3
       console.warn("Halaman dengan ID " + pageId + " tidak ditemukan.");
     }
   }
-  
-  function hitungGDR() {
-    const meninggal = parseFloat(document.getElementById('gdrMeninggal').value);
-    const keluar = parseFloat(document.getElementById('gdrKeluar').value);
-    const hasil = keluar > 0 ? (meninggal / keluar) * 1000 : 0;
-    document.getElementById('nilaiGDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilGDR').classList.remove('hidden');
-    document.getElementById('statusGDR').textContent = hasil > 45 ? 'Tinggi' : 'Normal';
-  }
-
-  function hitungNDR() {
-    const meninggal48 = parseFloat(document.getElementById('ndrMeninggal48').value);
-    const keluar = parseFloat(document.getElementById('ndrKeluar').value);
-    const hasil = keluar > 0 ? (meninggal48 / keluar) * 1000 : 0;
-    document.getElementById('nilaiNDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilNDR').classList.remove('hidden');
-    document.getElementById('statusNDR').textContent = hasil > 10 ? 'Tinggi' : 'Ideal';
-  }
-
-  function hitungMDR() {
-    const kematian = parseFloat(document.getElementById('mdrKematianIbu').value);
-    const kelahiran = parseFloat(document.getElementById('mdrKelahiranHidup').value);
-    const hasil = kelahiran > 0 ? (kematian / kelahiran) * 1000 : 0;
-    document.getElementById('nilaiMDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilMDR').classList.remove('hidden');
-  }
-
-  function hitungPDR() {
-    const kematianOp = parseFloat(document.getElementById('pdrKematianOperasi').value);
-    const tindakan = parseFloat(document.getElementById('pdrJumlahOperasi').value);
-    const hasil = tindakan > 0 ? (kematianOp / tindakan) * 1000 : 0;
-    document.getElementById('nilaiPDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilPDR').classList.remove('hidden');
-  }
-
-  function hitungNnDR() {
-    const kematianBayi = parseFloat(document.getElementById('nndrKematianBayi').value);
-    const kelahiran = parseFloat(document.getElementById('nndrKelahiranHidup').value);
-    const hasil = kelahiran > 0 ? (kematianBayi / kelahiran) * 1000 : 0;
-    document.getElementById('nilaiNnDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilNnDR').classList.remove('hidden');
-  }
     </script>
-
-
-
-
-   
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ab9114201efdc4',t:'MTc1NDQ1MjE5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
