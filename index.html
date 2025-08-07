@@ -948,7 +948,54 @@
                     <p class="text-gray-600">Analisis indikator efisiensi rumah sakit</p>
                 </div>
                 
-               
+                <!-- Summary Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-cyan-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800">Rawat Jalan</h3>
+                                <p class="text-3xl font-bold text-cyan-600">245</p>
+                                <p class="text-sm text-gray-500">Bulan ini</p>
+                            </div>
+                            <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800">Rawat Inap</h3>
+                                <p class="text-3xl font-bold text-indigo-600">89</p>
+                                <p class="text-sm text-gray-500">Bulan ini</p>
+                            </div>
+                            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800">IGD</h3>
+                                <p class="text-3xl font-bold text-red-600">67</p>
+                                <p class="text-sm text-gray-500">Bulan ini</p>
+                            </div>
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Hospital Efficiency Indicators -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <!-- BOR Calculator -->
@@ -1090,78 +1137,9 @@
                             </div>
                         </div>
                     </div>
-              <!-- GDR Calculator -->
-  <div class="bg-white rounded-xl shadow-lg p-6">
-    <h3 class="text-xl font-semibold text-gray-800 mb-4">Gross Death Rate (GDR)</h3>
-    <div class="space-y-4">
-      <input type="number" id="gdrMeninggal" placeholder="Jumlah pasien meninggal" class="w-full px-4 py-2 border rounded-lg">
-      <input type="number" id="gdrKeluar" placeholder="Jumlah pasien keluar" class="w-full px-4 py-2 border rounded-lg">
-      <button onclick="hitungGDR()" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg">Hitung GDR</button>
-      <div id="hasilGDR" class="hidden mt-4 p-4 bg-gray-50 rounded-lg text-center">
-        <p class="text-sm text-gray-600 mb-2">Hasil GDR:</p>
-        <p id="nilaiGDR" class="text-2xl font-bold text-red-600 mb-2"></p>
-        <div id="statusGDR" class="text-sm font-medium"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- NDR Calculator -->
-  <div class="bg-white rounded-xl shadow-lg p-6">
-    <h3 class="text-xl font-semibold text-gray-800 mb-4">Net Death Rate (NDR)</h3>
-    <div class="space-y-4">
-      <input type="number" id="ndrMeninggal48" placeholder="Jumlah meninggal >48 jam dirawat" class="w-full px-4 py-2 border rounded-lg">
-      <input type="number" id="ndrKeluar" placeholder="Jumlah pasien keluar" class="w-full px-4 py-2 border rounded-lg">
-      <button onclick="hitungNDR()" class="w-full bg-pink-600 hover:bg-pink-700 text-white py-2 px-4 rounded-lg">Hitung NDR</button>
-      <div id="hasilNDR" class="hidden mt-4 p-4 bg-gray-50 rounded-lg text-center">
-        <p class="text-sm text-gray-600 mb-2">Hasil NDR:</p>
-        <p id="nilaiNDR" class="text-2xl font-bold text-pink-600 mb-2"></p>
-        <div id="statusNDR" class="text-sm font-medium"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MDR Calculator -->
-  <div class="bg-white rounded-xl shadow-lg p-6">
-    <h3 class="text-xl font-semibold text-gray-800 mb-4">Maternal Death Rate (MDR)</h3>
-    <div class="space-y-4">
-      <input type="number" id="mdrKematianIbu" placeholder="Jumlah kematian ibu" class="w-full px-4 py-2 border rounded-lg">
-      <input type="number" id="mdrKelahiranHidup" placeholder="Jumlah kelahiran hidup" class="w-full px-4 py-2 border rounded-lg">
-      <button onclick="hitungMDR()" class="w-full bg-rose-600 hover:bg-rose-700 text-white py-2 px-4 rounded-lg">Hitung MDR</button>
-      <div id="hasilMDR" class="hidden mt-4 p-4 bg-gray-50 rounded-lg text-center">
-        <p class="text-sm text-gray-600 mb-2">Hasil MDR:</p>
-        <p id="nilaiMDR" class="text-2xl font-bold text-rose-600 mb-2"></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- PDR Calculator -->
-  <div class="bg-white rounded-xl shadow-lg p-6">
-    <h3 class="text-xl font-semibold text-gray-800 mb-4">Post Operative Death Rate (PDR)</h3>
-    <div class="space-y-4">
-      <input type="number" id="pdrKematianOperasi" placeholder="Jumlah kematian pasca operasi" class="w-full px-4 py-2 border rounded-lg">
-      <input type="number" id="pdrJumlahOperasi" placeholder="Jumlah tindakan/operasi" class="w-full px-4 py-2 border rounded-lg">
-      <button onclick="hitungPDR()" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg">Hitung PDR</button>
-      <div id="hasilPDR" class="hidden mt-4 p-4 bg-gray-50 rounded-lg text-center">
-        <p class="text-sm text-gray-600 mb-2">Hasil PDR:</p>
-        <p id="nilaiPDR" class="text-2xl font-bold text-yellow-600 mb-2"></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- NnDR Calculator -->
-  <div class="bg-white rounded-xl shadow-lg p-6">
-    <h3 class="text-xl font-semibold text-gray-800 mb-4">Neonatal Death Rate (NnDR)</h3>
-    <div class="space-y-4">
-      <input type="number" id="nndrKematianBayi" placeholder="Jumlah kematian bayi <28 hari" class="w-full px-4 py-2 border rounded-lg">
-      <input type="number" id="nndrKelahiranHidup" placeholder="Jumlah kelahiran hidup" class="w-full px-4 py-2 border rounded-lg">
-      <button onclick="hitungNnDR()" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-4 rounded-lg">Hitung NnDR</button>
-      <div id="hasilNnDR" class="hidden mt-4 p-4 bg-gray-50 rounded-lg text-center">
-        <p class="text-sm text-gray-600 mb-2">Hasil NnDR:</p>
-        <p id="nilaiNnDR" class="text-2xl font-bold text-cyan-600 mb-2"></p>
-      </div>
-    </div>
-  </div>
-</div>
+                </div>
+            </div>
+        </div>
 
         <!-- Halaman Grafik Barber Johnson -->
         <div id="grafikBarberJohnson" class="page page-content p-8 hidden">
@@ -2107,18 +2085,7 @@
                 nomorJaminanInput.value = '';
             }
         }
-        function showPage(pageId) {
-  const pages = document.querySelectorAll('.page');
-  pages.forEach(page => page.classList.add('hidden'));
-
-  const target = document.getElementById(pageId);
-  if (target) {
-    target.classList.remove('hidden');
-  } else {
-    console.warn("Halaman dengan ID " + pageId + " tidak ditemukan.");
-  }
-}
-
+        
         // Function untuk reset form pelepasan informasi
         function resetFormPelepasan() {
             document.getElementById('formPelepasan').reset();
@@ -2130,47 +2097,7 @@
         }
         
         // Functions untuk perhitungan statistik rumah sakit
-          function hitungGDR() {
-    const meninggal = parseFloat(document.getElementById('gdrMeninggal').value);
-    const keluar = parseFloat(document.getElementById('gdrKeluar').value);
-    const hasil = keluar > 0 ? (meninggal / keluar) * 1000 : 0;
-    document.getElementById('nilaiGDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilGDR').classList.remove('hidden');
-    document.getElementById('statusGDR').textContent = hasil > 45 ? 'Tinggi' : 'Normal';
-  }
-
-  function hitungNDR() {
-    const meninggal48 = parseFloat(document.getElementById('ndrMeninggal48').value);
-    const keluar = parseFloat(document.getElementById('ndrKeluar').value);
-    const hasil = keluar > 0 ? (meninggal48 / keluar) * 1000 : 0;
-    document.getElementById('nilaiNDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilNDR').classList.remove('hidden');
-    document.getElementById('statusNDR').textContent = hasil > 10 ? 'Tinggi' : 'Ideal';
-  }
-
-  function hitungMDR() {
-    const kematian = parseFloat(document.getElementById('mdrKematianIbu').value);
-    const kelahiran = parseFloat(document.getElementById('mdrKelahiranHidup').value);
-    const hasil = kelahiran > 0 ? (kematian / kelahiran) * 1000 : 0;
-    document.getElementById('nilaiMDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilMDR').classList.remove('hidden');
-  }
-
-  function hitungPDR() {
-    const kematianOp = parseFloat(document.getElementById('pdrKematianOperasi').value);
-    const tindakan = parseFloat(document.getElementById('pdrJumlahOperasi').value);
-    const hasil = tindakan > 0 ? (kematianOp / tindakan) * 1000 : 0;
-    document.getElementById('nilaiPDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilPDR').classList.remove('hidden');
-  }
-
-  function hitungNnDR() {
-    const kematianBayi = parseFloat(document.getElementById('nndrKematianBayi').value);
-    const kelahiran = parseFloat(document.getElementById('nndrKelahiranHidup').value);
-    const hasil = kelahiran > 0 ? (kematianBayi / kelahiran) * 1000 : 0;
-    document.getElementById('nilaiNnDR').textContent = hasil.toFixed(2);
-    document.getElementById('hasilNnDR').classList.remove('hidden');
-  }
+        
         // Function untuk membuat Grafik Barber Johnson
         function updateBarberJohnsonChart() {
             const namaRS = document.getElementById('namaRS').value || 'RS Umum Daerah';
