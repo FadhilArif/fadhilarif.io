@@ -1176,7 +1176,39 @@
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Grafik Barber Johnson</h2>
                     <p class="text-gray-600">Analisis efisiensi tempat tidur rumah sakit dengan koordinat Cartesian</p>
                 </div>
-                
+                <!-- Toggle Pilihan Input -->
+<div class="flex space-x-2 mb-4">
+  <button onclick="pilihInput('langsung')" class="bg-blue-500 text-white px-4 py-2 rounded-md">Input Indikator</button>
+  <button onclick="pilihInput('mentah')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Input Data Mentah</button>
+</div>
+
+<!-- Form Input Langsung -->
+<div id="formInputLangsung" class="space-y-4">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <input id="inputBOR" type="number" step="any" placeholder="BOR (%)" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="inputLOS" type="number" step="any" placeholder="AvLOS (Hari)" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="inputTOI" type="number" step="any" placeholder="TOI (Hari)" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="inputBTO" type="number" step="any" placeholder="BTO (x)" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+  </div>
+  <button onclick="updateBarberJohnsonChart()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg w-full">
+    Tampilkan Grafik
+  </button>
+</div>
+
+<!-- Form Input Mentah -->
+<div id="formInputMentah" class="space-y-4 hidden mt-6">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <input id="hariPerawatanMentah" type="number" placeholder="Jumlah Hari Perawatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="lamaDirawatMentah" type="number" placeholder="Jumlah Lama Dirawat" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="jumlahTTMentah" type="number" placeholder="Jumlah Tempat Tidur" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="periodeHariMentah" type="number" placeholder="Periode Hari" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="pasienKeluarHidup" type="number" placeholder="Jumlah Pasien Keluar Hidup" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="pasienKeluarMati" type="number" placeholder="Jumlah Pasien Keluar Mati" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+  </div>
+  <button onclick="hitungDariDataMentah()" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg w-full">
+    Hitung Indikator & Tampilkan Grafik
+  </button>
+</div>
                 <!-- Input Form untuk Data Indikator -->
                 <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
                     <h3 class="text-xl font-semibold text-gray-800 mb-6">Input Data Indikator Rumah Sakit</h3>
@@ -2182,7 +2214,39 @@
                 alert('Harap lengkapi semua nilai indikator dengan benar');
                 return;
             }
-            
+            function pilihInput(mode) {
+    document.getElementById("formInputLangsung").classList.toggle("hidden", mode !== "langsung");
+    document.getElementById("formInputMentah").classList.toggle("hidden", mode !== "mentah");
+  }
+
+  function hitungDariDataMentah() {
+    const hariPerawatan = parseFloat(document.getElementById('hariPerawatanMentah').value) || 0;
+    const lamaDirawat = parseFloat(document.getElementById('lamaDirawatMentah').value) || 0;
+    const jumlahTT = parseFloat(document.getElementById('jumlahTTMentah').value) || 0;
+    const periodeHari = parseFloat(document.getElementById('periodeHariMentah').value) || 0;
+    const pasienKeluarHidup = parseFloat(document.getElementById('pasienKeluarHidup').value) || 0;
+    const pasienKeluarMati = parseFloat(document.getElementById('pasienKeluarMati').value) || 0;
+
+    const totalPasienKeluar = pasienKeluarHidup + pasienKeluarMati;
+
+    if (jumlahTT === 0 || periodeHari === 0 || totalPasienKeluar === 0) {
+      alert("Data tidak lengkap atau ada nilai nol. Silakan periksa kembali.");
+      return;
+    }
+
+    const bor = (hariPerawatan / (jumlahTT * periodeHari)) * 100;
+    const avlos = lamaDirawat / totalPasienKeluar;
+    const toi = ((jumlahTT * periodeHari) - hariPerawatan) / totalPasienKeluar;
+    const bto = totalPasienKeluar / jumlahTT;
+
+    // Tampilkan hasil ke input indikator utama
+    document.getElementById('inputBOR').value = bor.toFixed(2);
+    document.getElementById('inputLOS').value = avlos.toFixed(2);
+    document.getElementById('inputTOI').value = toi.toFixed(2);
+    document.getElementById('inputBTO').value = bto.toFixed(2);
+
+    updateBarberJohnsonChart();
+  }
             // Update judul grafik
             const periodeTeks = periode === 30 ? 'Bulanan' : periode === 90 ? 'Triwulan' : 'Tahunan';
             document.getElementById('judulGrafik').textContent = 
