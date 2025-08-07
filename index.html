@@ -2274,7 +2274,8 @@
 </div>
 
 
-
+<button id="btnLangsung" onclick="pilihInput('langsung')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Input Indikator</button>
+  <button id="btnMentah" onclick="pilihInput('mentah')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Input Data Mentah</button>
 <!-- Form Input Mentah -->
 <div id="formInputMentah" class="space-y-4 hidden mt-6">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -3294,10 +3295,32 @@
                 alert('Harap lengkapi semua nilai indikator dengan benar');
                 return;
             }
-           function pilihInput(mode) {
+function pilihInput(mode) {
+  const formLangsung = document.getElementById("formInputLangsung");
+  const formMentah = document.getElementById("formInputMentah");
+  const btnLangsung = document.getElementById("btnLangsung");
+  const btnMentah = document.getElementById("btnMentah");
 
-    document.getElementById("formInputMentah").classList.toggle("hidden", mode !== "mentah");
+  if (mode === "mentah") {
+    formMentah.classList.remove("hidden");
+    if (formLangsung) formLangsung.classList.add("hidden");
+
+    btnMentah.classList.remove("bg-gray-300", "text-gray-800");
+    btnMentah.classList.add("bg-blue-500", "text-white");
+
+    btnLangsung.classList.remove("bg-blue-500", "text-white");
+    btnLangsung.classList.add("bg-gray-300", "text-gray-800");
+  } else if (mode === "langsung") {
+    formMentah.classList.add("hidden");
+    if (formLangsung) formLangsung.classList.remove("hidden");
+
+    btnLangsung.classList.remove("bg-gray-300", "text-gray-800");
+    btnLangsung.classList.add("bg-blue-500", "text-white");
+
+    btnMentah.classList.remove("bg-blue-500", "text-white");
+    btnMentah.classList.add("bg-gray-300", "text-gray-800");
   }
+}
 
   function hitungDariDataMentah() {
     const hariPerawatan = parseFloat(document.getElementById('hariPerawatanMentah').value) || 0;
