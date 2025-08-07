@@ -1090,6 +1090,1098 @@
                             </div>
                         </div>
                     </div>
+             <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Manajemen Rumah Sakit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .login-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .form-container {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .page-content {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: calc(100vh - 80px);
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Halaman Login -->
+    <div id="loginPage" class="login-container flex items-center justify-center p-4">
+        <div class="form-container rounded-2xl p-8 w-full max-w-md">
+            <div class="text-center mb-8">
+                <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">Sistem Rumah Sakit</h1>
+                <p class="text-gray-600">Silakan masuk untuk melanjutkan</p>
+            </div>
+            
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                    <input type="text" id="username" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                           placeholder="Masukkan username">
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="password" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                           placeholder="Masukkan password">
+                </div>
+                
+                <button type="submit" 
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-200 transform hover:scale-105">
+                    Masuk
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center text-sm text-gray-600">
+                <p>Demo: username = <strong>admin</strong>, password = <strong>admin123</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aplikasi Utama -->
+    <div id="mainApp" class="hidden">
+        <!-- Navbar -->
+      <!-- Navbar -->
+<nav class="bg-white shadow-lg border-b-2 border-blue-500">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo dan judul -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+            </path>
+          </svg>
+        </div>
+        <h1 class="text-xl font-bold text-gray-800">Sistem Rumah Sakit</h1>
+      </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMobileMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Menu kanan (desktop) -->
+      <div class="hidden md:flex items-center space-x-4">
+        <div class="flex items-center space-x-2 text-gray-600 bg-gray-50 px-4 py-2 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+            </path>
+          </svg>
+          <span>Selamat datang, <strong id="currentUser">admin</strong></span>
+        </div>
+
+        <button onclick="logout()"
+          class="nav-button bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium flex items-center space-x-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+            </path>
+          </svg>
+          <span>Logout</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu navigasi -->
+      <!-- Tombol hamburger (muncul hanya di HP) -->
+<button class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMobileMenu()">
+  <!-- Ikon hamburger (3 garis) -->
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+</button>
+
+    <div id="mobileMenu" class="hidden md:flex flex-wrap gap-2 pb-4 mt-2">
+      <button onclick="showPage('dashboard')"
+        class="nav-button bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium">Dashboard</button>
+      <button onclick="showPage('pendaftaran')"
+        class="nav-button bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium">Pendaftaran
+        Pasien</button>
+      <button onclick="showPage('rawatJalan')"
+        class="nav-button bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium">Rawat Jalan</button>
+      <button onclick="showPage('rawatInap')"
+        class="nav-button bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium">Rawat
+        Inap</button>
+      <button onclick="showPage('gawatDarurat')"
+        class="nav-button bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium">Gawat
+        Darurat</button>
+      <button onclick="showPage('dataPasien')"
+        class="nav-button bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium">Data
+        Pasien</button>
+      <button onclick="showPage('pelepasanInformasi')"
+        class="nav-button bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium">Pelepasan
+        Informasi</button>
+      <button onclick="showPage('statistik')"
+        class="nav-button bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg font-medium">Statistik</button>
+      <button onclick="showPage('grafikBarberJohnson')"
+        class="nav-button bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg font-medium">Grafik Barber
+        Johnson</button>
+    </div>
+  </div>
+</nav>
+
+        <div id="dashboard" class="page page-content p-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Dashboard</h2>
+                    <p class="text-gray-600">Selamat datang di sistem manajemen rumah sakit</p>
+                </div>
+                
+                <!-- Statistik Hari Ini -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-teal-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800">Rawat Jalan Hari Ini</h3>
+                                <p id="rawatJalanHariIni" class="text-3xl font-bold text-teal-600">0</p>
+                                <p class="text-sm text-gray-500">pasien</p>
+                            </div>
+                            <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800">Rawat Inap Hari Ini</h3>
+                                <p id="rawatInapHariIni" class="text-3xl font-bold text-indigo-600">0</p>
+                                <p class="text-sm text-gray-500">pasien</p>
+                            </div>
+                            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800">Gawat Darurat Hari Ini</h3>
+                                <p id="gawatDaruratHariIni" class="text-3xl font-bold text-red-600">0</p>
+                                <p class="text-sm text-gray-500">pasien</p>
+                            </div>
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800">Total Pasien Hari Ini</h3>
+                                <p id="totalPasienHariIni" class="text-3xl font-bold text-blue-600">0</p>
+                                <p class="text-sm text-gray-500">pasien</p>
+                            </div>
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu Navigasi Cepat -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Menu Navigasi Cepat</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                        <button onclick="showPage('pendaftaran')" class="flex flex-col items-center p-4 bg-green-50 hover:bg-green-100 rounded-lg transition duration-200 group">
+                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-3 group-hover:bg-green-700 transition duration-200">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 text-center">Pendaftaran Pasien</span>
+                        </button>
+                        
+                        <button onclick="showPage('rawatJalan')" class="flex flex-col items-center p-4 bg-teal-50 hover:bg-teal-100 rounded-lg transition duration-200 group">
+                            <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mb-3 group-hover:bg-teal-700 transition duration-200">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 text-center">Rawat Jalan</span>
+                        </button>
+                        
+                        <button onclick="showPage('rawatInap')" class="flex flex-col items-center p-4 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition duration-200 group">
+                            <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-3 group-hover:bg-indigo-700 transition duration-200">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 text-center">Rawat Inap</span>
+                        </button>
+                        
+                        <button onclick="showPage('gawatDarurat')" class="flex flex-col items-center p-4 bg-red-50 hover:bg-red-100 rounded-lg transition duration-200 group">
+                            <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-3 group-hover:bg-red-700 transition duration-200">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 text-center">Gawat Darurat</span>
+                        </button>
+                        
+                        <button onclick="showPage('dataPasien')" class="flex flex-col items-center p-4 bg-purple-50 hover:bg-purple-100 rounded-lg transition duration-200 group">
+                            <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-3 group-hover:bg-purple-700 transition duration-200">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 text-center">Data Pasien</span>
+                        </button>
+                        
+                        <button onclick="showPage('pelepasanInformasi')" class="flex flex-col items-center p-4 bg-orange-50 hover:bg-orange-100 rounded-lg transition duration-200 group">
+                            <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-3 group-hover:bg-orange-700 transition duration-200">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 text-center">Pelepasan Informasi</span>
+                        </button>
+                        
+                        <button onclick="showPage('statistik')" class="flex flex-col items-center p-4 bg-cyan-50 hover:bg-cyan-100 rounded-lg transition duration-200 group">
+                            <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mb-3 group-hover:bg-cyan-700 transition duration-200">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 text-center">Statistik</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman Pendaftaran -->
+        <div id="pendaftaran" class="page page-content p-8 hidden">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Pasien</h2>
+                    <p class="text-gray-600">Daftarkan pasien baru ke sistem</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <form id="formPendaftaran" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="noRM" class="block text-sm font-medium text-gray-700 mb-2">No. RM</label>
+                            <input type="text" id="noRM" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukkan nomor rekam medis">
+                        </div>
+                        
+                        <div>
+                            <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                            <input type="text" id="nama" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukkan nama lengkap">
+                        </div>
+                        
+                        <div>
+                            <label for="tglLahir" class="block text-sm font-medium text-gray-700 mb-2">Tanggal Lahir</label>
+                            <input type="date" id="tglLahir" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Kelamin</label>
+                            <div class="flex space-x-6 mt-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="jenisKelamin" value="Laki-laki" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300">
+                                    <span class="ml-2 text-sm text-gray-700">Laki-laki</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="jenisKelamin" value="Perempuan" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300">
+                                    <span class="ml-2 text-sm text-gray-700">Perempuan</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label for="alamat" class="block text-sm font-medium text-gray-700 mb-2">Alamat</label>
+                            <textarea id="alamat" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="3" placeholder="Masukkan alamat lengkap"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label for="noTelepon" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon</label>
+                            <input type="tel" id="noTelepon" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukkan nomor telepon">
+                        </div>
+                        
+                        <div>
+                            <label for="poli" class="block text-sm font-medium text-gray-700 mb-2">Poli</label>
+                            <select id="poli" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Pilih poli</option>
+                                <option value="Umum">Poli Umum</option>
+                                <option value="Gigi">Poli Gigi</option>
+                                <option value="KIA">Poli KIA</option>
+                                <option value="Mata">Poli Mata</option>
+                                <option value="THT">Poli THT</option>
+                                <option value="Jantung">Poli Jantung</option>
+                            </select>
+                        </div>
+                        
+                        <div class="md:col-span-2 flex justify-end space-x-4">
+                            <button type="button" onclick="resetForm()" class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200">
+                                Batal
+                            </button>
+                            <button type="submit" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition duration-200">
+                                Daftar Pasien
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman Rawat Jalan -->
+        <div id="rawatJalan" class="page page-content p-8 hidden">
+            <div class="flex">
+              
+                <!-- Main Content -->
+                <div class="flex-1">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Rawat Jalan</h2>
+                        <p class="text-gray-600">Daftarkan pasien untuk rawat jalan</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <form id="formRawatJalan" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">No. Rekam Medis *</label>
+                                <input type="text" name="noRM" id="noRMRJ" readonly class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 cursor-not-allowed">
+                                <p class="text-xs text-gray-500 mt-1">Nomor rekam medis akan dibuat otomatis</p>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Pasien *</label>
+                                <input type="text" name="namaPasien" required placeholder="Masukkan nama lengkap pasien" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">NIK *</label>
+                                <input type="text" name="nik" required placeholder="Masukkan NIK pasien" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Lahir *</label>
+                                <input type="date" name="tanggalLahir" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Alamat *</label>
+                                <textarea name="alamat" required placeholder="Masukkan alamat lengkap" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Kelamin *</label>
+                                <div class="flex flex-wrap space-x-6 mt-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="jenisKelamin" value="Laki-laki" required class="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300">
+                                        <span class="ml-2 text-sm text-gray-700">Laki-laki</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="jenisKelamin" value="Perempuan" required class="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300">
+                                        <span class="ml-2 text-sm text-gray-700">Perempuan</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="jenisKelamin" value="Tidak Diketahui" required class="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300">
+                                        <span class="ml-2 text-sm text-gray-700">Tidak Diketahui</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Cara Bayar *</label>
+                                <select name="caraBayar" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                                    <option value="">Pilih cara bayar</option>
+                                    <option value="Umum">Umum</option>
+                                    <option value="BPJS PBI">BPJS PBI</option>
+                                    <option value="BPJS NON PBI">BPJS NON PBI</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Poliklinik *</label>
+                                <select name="poliklinik" id="poliklinikRJ" required onchange="updateDokterOptions(this.value, 'dokterRJ')" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                                    <option value="">Pilih poliklinik</option>
+                                    <option value="DALAM">DALAM</option>
+                                    <option value="BEDAH">BEDAH</option>
+                                    <option value="UMUM">UMUM</option>
+                                    <option value="GIGI">GIGI</option>
+                                    <option value="ANAK">ANAK</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Dokter *</label>
+                                <select name="dokter" id="dokterRJ" required disabled class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                                    <option value="">Pilih dokter</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon *</label>
+                                <input type="tel" name="nomorTelepon" required placeholder="Masukkan nomor telepon" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Penanggung Jawab Pasien</label>
+                                <input type="text" name="penanggungJawabPasien" placeholder="Masukkan nama penanggung jawab pasien" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Status Penanggung Jawab</label>
+                                <select name="statusPenanggungJawab" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                                    <option value="">Pilih status penanggung jawab</option>
+                                    <option value="Keluarga">Keluarga</option>
+                                    <option value="Kerabat">Kerabat</option>
+                                    <option value="Teman">Teman</option>
+                                </select>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Keluhan Pasien</label>
+                                <textarea name="keluhanPasien" placeholder="Masukkan keluhan pasien" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Kode ICD 10</label>
+                                <input type="text" name="kodeICD10" placeholder="Masukkan kode ICD 10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                            </div>
+                            
+                            <div></div>
+                            
+                            <div class="md:col-span-2 flex justify-end space-x-4 pt-6">
+                                <button type="button" onclick="resetFormRawatJalan()" class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200">
+                                    Reset
+                                </button>
+                                <button type="submit" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition duration-200">
+                                    Simpan Data
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman Rawat Inap -->
+        <div id="rawatInap" class="page page-content p-8 hidden">
+            <div class="flex">
+               
+
+                <!-- Main Content -->
+                <div class="flex-1">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Rawat Inap</h2>
+                        <p class="text-gray-600">Daftarkan pasien untuk rawat inap</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <form id="formRawatInap" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">No. Rekam Medis *</label>
+                                <input type="text" name="noRM" id="noRMRI" readonly class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 cursor-not-allowed">
+                                <p class="text-xs text-gray-500 mt-1">Nomor rekam medis akan dibuat otomatis</p>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Pasien *</label>
+                                <input type="text" name="namaPasien" required placeholder="Masukkan nama lengkap pasien" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Lahir *</label>
+                                <input type="date" name="tanggalLahir" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Alamat *</label>
+                                <textarea name="alamat" required placeholder="Masukkan alamat lengkap" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Kelamin *</label>
+                                <div class="flex flex-wrap space-x-6 mt-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="jenisKelamin" value="Laki-laki" required class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-gray-300">
+                                        <span class="ml-2 text-sm text-gray-700">Laki-laki</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="jenisKelamin" value="Perempuan" required class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-gray-300">
+                                        <span class="ml-2 text-sm text-gray-700">Perempuan</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="jenisKelamin" value="Tidak Diketahui" required class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-gray-300">
+                                        <span class="ml-2 text-sm text-gray-700">Tidak Diketahui</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Cara Bayar *</label>
+                                <select name="caraBayar" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                    <option value="">Pilih cara bayar</option>
+                                    <option value="Umum">Umum</option>
+                                    <option value="BPJS PBI">BPJS PBI</option>
+                                    <option value="BPJS NON PBI">BPJS NON PBI</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Bangsal *</label>
+                                <select name="bangsal" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                    <option value="">Pilih bangsal</option>
+                                    <option value="Melati">Melati</option>
+                                    <option value="Mawar">Mawar</option>
+                                    <option value="Anggrek">Anggrek</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Dokter Penanggungjawab *</label>
+                                <select name="dokterPenanggungJawab" id="dokterRI" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                    <option value="">Pilih dokter penanggungjawab</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Masuk *</label>
+                                <input type="date" name="tanggalMasuk" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jam Masuk *</label>
+                                <input type="time" name="jamMasuk" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Kode ICD 10</label>
+                                <input type="text" name="kodeICD10" placeholder="Masukkan kode ICD 10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Kode ICD 9</label>
+                                <input type="text" name="kodeICD9" placeholder="Masukkan kode ICD 9" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Diagnosa Masuk</label>
+                                <textarea name="diagnosaMasuk" placeholder="Masukkan diagnosa masuk pasien" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Anamnesa</label>
+                                <textarea name="anamnesa" placeholder="Masukkan anamnesa pasien" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <div class="md:col-span-2 flex justify-end space-x-4 pt-6">
+                                <button type="button" onclick="resetFormRawatInap()" class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200">
+                                    Reset
+                                </button>
+                                <button type="submit" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition duration-200">
+                                    Simpan Data
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman Gawat Darurat -->
+        <div id="gawatDarurat" class="page page-content p-8 hidden">
+            <div class="flex">
+              
+
+                <!-- Main Content -->
+                <div class="flex-1">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Gawat Darurat</h2>
+                        <p class="text-gray-600">Daftarkan pasien untuk gawat darurat</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-red-500">
+                        <form id="formIGD" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Pasien *</label>
+                                <input type="text" name="namaPasien" required placeholder="Masukkan nama lengkap pasien" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">NIK *</label>
+                                <input type="text" name="nik" required placeholder="Masukkan NIK pasien" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Lahir *</label>
+                                <input type="date" name="tanggalLahir" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Alamat *</label>
+                                <textarea name="alamat" required placeholder="Masukkan alamat lengkap" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Kelamin *</label>
+                                <div class="flex flex-wrap space-x-6 mt-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="jenisKelamin" value="Laki-laki" required class="w-4 h-4 text-red-600 focus:ring-red-500 border-gray-300">
+                                        <span class="ml-2 text-sm text-gray-700">Laki-laki</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="jenisKelamin" value="Perempuan" required class="w-4 h-4 text-red-600 focus:ring-red-500 border-gray-300">
+                                        <span class="ml-2 text-sm text-gray-700">Perempuan</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="jenisKelamin" value="Tidak Diketahui" required class="w-4 h-4 text-red-600 focus:ring-red-500 border-gray-300">
+                                        <span class="ml-2 text-sm text-gray-700">Tidak Diketahui</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Cara Bayar *</label>
+                                <select name="caraBayar" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                                    <option value="">Pilih cara bayar</option>
+                                    <option value="Umum">Umum</option>
+                                    <option value="BPJS PBI">BPJS PBI</option>
+                                    <option value="BPJS NON PBI">BPJS NON PBI</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Poliklinik *</label>
+                                <select name="poliklinik" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                                    <option value="">Pilih poliklinik</option>
+                                    <option value="DALAM">DALAM</option>
+                                    <option value="BEDAH">BEDAH</option>
+                                    <option value="UMUM">UMUM</option>
+                                    <option value="GIGI">GIGI</option>
+                                    <option value="ANAK">ANAK</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon *</label>
+                                <input type="tel" name="nomorTelepon" required placeholder="Masukkan nomor telepon" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Penanggung Jawab Pasien</label>
+                                <input type="text" name="penanggungJawabPasien" placeholder="Masukkan nama penanggung jawab pasien" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Status Penanggung Jawab</label>
+                                <select name="statusPenanggungJawab" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                                    <option value="">Pilih status penanggung jawab</option>
+                                    <option value="Keluarga">Keluarga</option>
+                                    <option value="Kerabat">Kerabat</option>
+                                    <option value="Teman">Teman</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Kondisi Pasien *</label>
+                                <select name="kondisiPasien" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                                    <option value="">Pilih kondisi pasien</option>
+                                    <option value="Sadar">Sadar</option>
+                                    <option value="Setengah Sadar">Setengah Sadar</option>
+                                    <option value="Tidak Sadar">Tidak Sadar</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Kode ICD 10</label>
+                                <input type="text" name="kodeICD10" placeholder="Masukkan kode ICD 10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Keluhan Pasien</label>
+                                <textarea name="keluhanPasien" placeholder="Masukkan keluhan pasien" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <div class="md:col-span-2 flex justify-end space-x-4 pt-6">
+                                <button type="button" onclick="resetFormGawatDarurat()" class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200">
+                                    Reset
+                                </button>
+                                <button type="submit" class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition duration-200">
+                                    Simpan Data
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <!-- Halaman Data Pasien -->
+<div id="dataPasien" class="page page-content p-4 sm:p-6 md:p-8 hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-6 sm:mb-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-1">Data Pasien</h2>
+      <p class="text-gray-600 text-sm sm:text-base">Kelola data pasien dari Rawat Jalan, Rawat Inap, dan Gawat Darurat</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+      <div class="p-4 sm:p-6 border-b border-gray-200">
+        <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
+          <h3 class="text-base sm:text-lg font-semibold text-gray-800">Daftar Pasien</h3>
+
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <!-- Filter Asal Pasien -->
+            <select id="filterAsalPasien" onchange="filterPasienData()" class="px-4 py-2 border border-gray-300 rounded-lg w-full sm:w-auto focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+              <option value="">Semua Asal Pasien</option>
+              <option value="Rawat Jalan">Rawat Jalan</option>
+              <option value="Rawat Inap">Rawat Inap</option>
+              <option value="Gawat Darurat">Gawat Darurat</option>
+            </select>
+
+            <!-- Search -->
+            <div class="flex flex-col sm:flex-row sm:space-x-2 gap-2 sm:gap-0">
+              <input type="text" id="searchPasien" placeholder="Cari nama/No.RM..." class="px-4 py-2 border border-gray-300 rounded-lg w-full sm:w-64 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+              <button onclick="searchPasienData()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition duration-200 w-full sm:w-auto">
+                Cari
+              </button>
+              <button onclick="resetFilter()" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition duration-200 w-full sm:w-auto">
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll horizontal hanya untuk tabel -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm sm:text-base">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No.</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No. RM</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tgl Lahir</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">JK</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Alamat</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No. Telp</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asal Pasien</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tgl Daftar</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="pasienTableBody" class="bg-white divide-y divide-gray-200">
+            <!-- Data pasien akan ditampilkan di sini -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- Halaman Pelepasan Informasi -->
+        <div id="pelepasanInformasi" class="page page-content p-8 hidden">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Pelepasan Informasi Medis</h2>
+                    <p class="text-gray-600">Kelola permintaan pelepasan informasi medis</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <form id="formPelepasan" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nama Pasien *</label>
+                            <input type="text" name="namaPasien" required placeholder="Masukkan nama pasien" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">No. Rekam Medis *</label>
+                            <input type="text" name="noRM" required placeholder="Masukkan No. RM" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Pembayaran *</label>
+                            <select name="jenisPembayaran" id="jenisPembayaran" required onchange="toggleBPJSField()" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                <option value="">Pilih jenis pembayaran</option>
+                                <option value="UMUM">UMUM</option>
+                                <option value="BPJS">BPJS</option>
+                            </select>
+                        </div>
+                        
+                        <div id="bpjsField" class="hidden">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Jaminan Kesehatan *</label>
+                            <input type="text" name="nomorJaminan" placeholder="Masukkan nomor jaminan kesehatan" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nama Pihak Penerima Informasi *</label>
+                            <input type="text" name="namaPenerima" required placeholder="Masukkan nama pihak penerima" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Alamat Pihak Penerima Informasi *</label>
+                            <textarea name="alamatPenerima" required placeholder="Masukkan alamat lengkap pihak penerima" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Formulir yang Dilepas *</label>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="formulirDilepas" value="Resume Medis" class="w-4 h-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-sm text-gray-700">Resume Medis</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="formulirDilepas" value="Ringkasan Pulang" class="w-4 h-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-sm text-gray-700">Ringkasan Pulang</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="formulirDilepas" value="Lembar Keluar Masuk" class="w-4 h-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-sm text-gray-700">Lembar Keluar Masuk</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="formulirDilepas" value="CPPT" class="w-4 h-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-sm text-gray-700">CPPT</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Permintaan *</label>
+                            <input type="date" name="tanggalMinta" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nama Petugas</label>
+                            <input type="text" name="namaPetugas" id="namaPetugas" readonly value="admin" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 cursor-not-allowed">
+                            <p class="text-xs text-gray-500 mt-1">Nama petugas diisi otomatis sesuai akun yang login</p>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Keperluan Permintaan *</label>
+                            <textarea name="keperluanPermintaan" required placeholder="Masukkan keperluan permintaan informasi medis" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tanda Tangan Peminta *</label>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                                <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                </svg>
+                                <p class="text-gray-500 text-sm">Area untuk tanda tangan peminta</p>
+                                <p class="text-xs text-gray-400 mt-2">Tanda tangan akan dilakukan secara manual pada dokumen fisik</p>
+                            </div>
+                        </div>
+                        
+                        <div class="md:col-span-2 flex justify-end space-x-4 pt-6">
+                            <button type="button" onclick="resetFormPelepasan()" class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200">
+                                Reset
+                            </button>
+                            <button type="submit" class="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition duration-200">
+                                Simpan Data
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman Statistik -->
+        <div id="statistik" class="page page-content p-8 hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Statistik Rumah Sakit</h2>
+                    <p class="text-gray-600">Analisis indikator efisiensi rumah sakit</p>
+                </div>
+                
+               
+                <!-- Hospital Efficiency Indicators -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- BOR Calculator -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            Bed Occupancy Rate (BOR)
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Tempat Tidur</label>
+                                <input type="number" id="borJumlahTT" placeholder="Masukkan jumlah tempat tidur" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Hari Perawatan</label>
+                                <input type="number" id="borHariPerawatan" placeholder="Masukkan hari perawatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Periode Hari</label>
+                                <input type="number" id="borPeriodeHari" placeholder="Masukkan periode hari" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <button onclick="hitungBOR()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-200">
+                                Hitung BOR
+                            </button>
+                            <div id="hasilBOR" class="hidden mt-4 p-4 bg-gray-50 rounded-lg">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600 mb-2">Hasil BOR:</p>
+                                    <p id="nilaiBOR" class="text-2xl font-bold text-blue-600 mb-2"></p>
+                                    <div id="statusBOR" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AvLOS Calculator -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            Average Length of Stay (AvLOS)
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Lama Dirawat</label>
+                                <input type="number" id="avlosJumlahLama" placeholder="Masukkan jumlah lama dirawat" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Pasien Keluar (Hidup + Mati)</label>
+                                <input type="number" id="avlosPasienKeluar" placeholder="Masukkan jumlah pasien keluar" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                            <button onclick="hitungAvLOS()" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition duration-200">
+                                Hitung AvLOS
+                            </button>
+                            <div id="hasilAvLOS" class="hidden mt-4 p-4 bg-gray-50 rounded-lg">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600 mb-2">Hasil AvLOS:</p>
+                                    <p id="nilaiAvLOS" class="text-2xl font-bold text-green-600 mb-2"></p>
+                                    <div id="statusAvLOS" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- TOI Calculator -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                </svg>
+                            </div>
+                            Turn Over Interval (TOI)
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Tempat Tidur</label>
+                                <input type="number" id="toiJumlahTT" placeholder="Masukkan jumlah tempat tidur" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Periode</label>
+                                <input type="number" id="toiPeriode" placeholder="Masukkan periode" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Hari Perawatan</label>
+                                <input type="number" id="toiHariPerawatan" placeholder="Masukkan hari perawatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Pasien Keluar (Hidup + Mati)</label>
+                                <input type="number" id="toiPasienKeluar" placeholder="Masukkan jumlah pasien keluar" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            </div>
+                            <button onclick="hitungTOI()" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg transition duration-200">
+                                Hitung TOI
+                            </button>
+                            <div id="hasilTOI" class="hidden mt-4 p-4 bg-gray-50 rounded-lg">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600 mb-2">Hasil TOI:</p>
+                                    <p id="nilaiTOI" class="text-2xl font-bold text-purple-600 mb-2"></p>
+                                    <div id="statusTOI" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- BTO Calculator -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                                </svg>
+                            </div>
+                            Bed Turn Over (BTO)
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Pasien Keluar (Hidup + Mati)</label>
+                                <input type="number" id="btoPasienKeluar" placeholder="Masukkan jumlah pasien keluar" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Tempat Tidur</label>
+                                <input type="number" id="btoJumlahTT" placeholder="Masukkan jumlah tempat tidur" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                            </div>
+                            <button onclick="hitungBTO()" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-lg transition duration-200">
+                                Hitung BTO
+                            </button>
+                            <div id="hasilBTO" class="hidden mt-4 p-4 bg-gray-50 rounded-lg">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600 mb-2">Hasil BTO:</p>
+                                    <p id="nilaiBTO" class="text-2xl font-bold text-orange-600 mb-2"></p>
+                                    <div id="statusBTO" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                             
   <!-- GDR Calculator -->
   <div class="bg-white rounded-xl shadow-lg p-6">
@@ -1170,6 +2262,1619 @@
         
 
         <!-- Halaman Grafik Barber Johnson -->
+        <div id="grafikBarberJohnson" class="page page-content p-8 hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Grafik Barber Johnson</h2>
+                    <p class="text-gray-600">Analisis efisiensi tempat tidur rumah sakit dengan koordinat Cartesian</p>
+                </div>
+                <!-- Toggle Pilihan Input -->
+<div class="flex space-x-2 mb-4">
+  <button onclick="pilihInput('mentah')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Input Data Mentah</button>
+</div>
+
+
+
+<!-- Form Input Mentah -->
+<div id="formInputMentah" class="space-y-4 hidden mt-6">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <input id="hariPerawatanMentah" type="number" placeholder="Jumlah Hari Perawatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="lamaDirawatMentah" type="number" placeholder="Jumlah Lama Dirawat" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="jumlahTTMentah" type="number" placeholder="Jumlah Tempat Tidur" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="periodeHariMentah" type="number" placeholder="Periode Hari" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="pasienKeluarHidup" type="number" placeholder="Jumlah Pasien Keluar Hidup" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+    <input id="pasienKeluarMati" type="number" placeholder="Jumlah Pasien Keluar Mati" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+  </div>
+  <button onclick="hitungDariDataMentah()" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg w-full">
+    Hitung Indikator & Tampilkan Grafik
+  </button>
+</div>
+                <!-- Input Form untuk Data Indikator -->
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Input Data Indikator Rumah Sakit</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nama Rumah Sakit</label>
+                            <input type="text" id="namaRS" value="RS Umum Daerah" placeholder="Masukkan nama RS" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nama Bangsal</label>
+                            <input type="text" id="namaBangsal" value="Bangsal Melati" placeholder="Masukkan nama bangsal" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Periode</label>
+                            <select id="periode" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                                <option value="30">Bulanan (30 hari)</option>
+                                <option value="90">Triwulan (90 hari)</option>
+                                <option value="365">Tahunan (365 hari)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tahun</label>
+                            <input type="number" id="tahun" value="2024" min="2020" max="2030" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">BOR (%)</label>
+                            <input type="number" id="inputBOR" value="75" min="0" max="100" step="0.1" placeholder="Masukkan nilai BOR" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">AvLOS (hari)</label>
+                            <input type="number" id="inputLOS" value="6.5" min="0" step="0.1" placeholder="Masukkan nilai AvLOS" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">TOI (hari)</label>
+                            <input type="number" id="inputTOI" value="2.5" min="0" step="0.1" placeholder="Masukkan nilai TOI" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">BTO (kali)</label>
+                            <input type="number" id="inputBTO" value="45" min="0" step="0.1" placeholder="Masukkan nilai BTO" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center mt-6">
+                        <button onclick="updateBarberJohnsonChart()" class="px-8 py-3 bg-pink-600 hover:bg-pink-700 text-white rounded-lg transition duration-200 font-medium">
+                            Update Grafik Barber Johnson
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Grafik Barber Johnson -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="mb-6">
+                        <h3 id="judulGrafik" class="text-xl font-semibold text-gray-800 text-center mb-2">
+                            Grafik Barber Johnson - RS Umum Daerah - Bangsal Melati - Tahun 2024
+                        </h3>
+                        <p class="text-gray-600 text-center text-sm">Koordinat: TOI (X) vs AvLOS (Y)</p>
+                    </div>
+                    
+                    <div class="flex justify-center">
+<div class="relative w-full overflow-auto">
+  <canvas id="barberJohnsonChart" class="w-full max-w-full h-auto border border-gray-300 rounded-lg"></canvas>
+</div>
+
+
+                            
+                            <!-- Zoom Controls -->
+                            <div class="absolute top-4 right-4 flex flex-col space-y-2">
+                                <button onclick="zoomIn()" class="bg-white hover:bg-gray-50 border border-gray-300 rounded-lg p-2 shadow-md transition duration-200" title="Zoom In">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                                    </svg>
+                                </button>
+                                <button onclick="zoomOut()" class="bg-white hover:bg-gray-50 border border-gray-300 rounded-lg p-2 shadow-md transition duration-200" title="Zoom Out">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"></path>
+                                    </svg>
+                                </button>
+                                <button onclick="resetZoom()" class="bg-white hover:bg-gray-50 border border-gray-300 rounded-lg p-2 shadow-md transition duration-200" title="Reset Zoom">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <!-- Zoom Level Indicator -->
+                            <div class="absolute bottom-4 right-4 bg-white border border-gray-300 rounded-lg px-3 py-1 shadow-md">
+                                <span class="text-sm text-gray-600">Zoom: <span id="zoomLevel">100%</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Legenda dan Keterangan -->
+                    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-3">Legenda Grafik</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-green-200 border-2 border-green-500 rounded mr-2"></div>
+                                    <span>Daerah Efisiensi (Ideal)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-1 bg-blue-500 mr-2"></div>
+                                    <span>Garis BOR (60%, 85%)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-1 bg-purple-500 mr-2"></div>
+                                    <span>Garis BTO</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-1 bg-red-500 mr-2"></div>
+                                    <span>Batas TOI (1-3 hari)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-1 bg-orange-500 mr-2"></div>
+                                    <span>Batas AvLOS (3-12 hari)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 bg-red-600 rounded-full mr-2"></div>
+                                    <span>Titik Data RS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-3">Interpretasi Hasil</h4>
+                            <div id="interpretasiHasil" class="text-sm text-gray-700">
+                                <p class="mb-2"><strong>Status Efisiensi:</strong> <span id="statusEfisiensi" class="font-medium">Menunggu data...</span></p>
+                                <p class="mb-2"><strong>Posisi Titik:</strong> <span id="posisiTitik">TOI: -, AvLOS: -</span></p>
+                                <p><strong>Rekomendasi:</strong> <span id="rekomendasi">Update grafik untuk melihat rekomendasi</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nilai Indikator Saat Ini -->
+                    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg text-center border border-blue-200">
+                            <h4 class="font-medium text-gray-800 text-sm">BOR</h4>
+                            <p id="displayBOR" class="text-xl font-bold text-blue-600">75%</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg text-center border border-green-200">
+                            <h4 class="font-medium text-gray-800 text-sm">AvLOS</h4>
+                            <p id="displayLOS" class="text-xl font-bold text-green-600">6.5 hari</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg text-center border border-purple-200">
+                            <h4 class="font-medium text-gray-800 text-sm">TOI</h4>
+                            <p id="displayTOI" class="text-xl font-bold text-purple-600">2.5 hari</p>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-lg text-center border border-orange-200">
+                            <h4 class="font-medium text-gray-800 text-sm">BTO</h4>
+                            <p id="displayBTO" class="text-xl font-bold text-orange-600">45 kali</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function renderPasienTable() {
+    const tbody = document.getElementById('pasienTableBody');
+    tbody.innerHTML = ''; // Kosongkan isi sebelumnya
+
+    allPasienData.forEach((pasien, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${index + 1}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.noRM}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.namaPasien || pasien.nama}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.tanggalLahir || pasien.tglLahir}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.jenisKelamin}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.alamat}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.nomorTelepon || pasien.noTelepon}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.asalPasien}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${pasien.tanggalDaftar}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">-</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+        // Array untuk menyimpan data pasien
+        let pasienList = [];
+        let dataRawatJalan = [];
+        let dataRawatInap = [];
+        let dataGawatDarurat = [];
+        let usedMedicalRecords = new Set(); // Untuk menyimpan nomor RM yang sudah digunakan
+        
+        // Array gabungan untuk semua data pasien
+        let allPasienData = [];
+        
+        // Variables untuk zoom grafik Barber Johnson
+        let zoomScale = 1.0;
+        let maxLOSZoom = 15;
+        let maxTOIZoom = 8;
+        
+        // Data dokter berdasarkan poliklinik
+        const dokterData = {
+            'DALAM': ['Afia Meilina', 'Zidane Miftakhul'],
+            'UMUM': ['Fadhil Muhammad', 'Caliulinius Deto'],
+            'BEDAH': ['Wijanarko', 'Aarif'],
+            'ANAK': ['Indah Dwi', 'Rahayu Widya'],
+            'GIGI': ['Dr. Gigi 1', 'Dr. Gigi 2'] // Tambahan untuk poli gigi
+        };
+        function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+        page.classList.add('hidden');
+    });
+    document.getElementById(pageId).classList.remove('hidden');
+
+    // Tambahkan ini:
+    if (pageId === 'dataPasien') {
+        renderPasienTable(); // render ulang tabel pasien saat buka halaman data pasien
+    }
+}
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  }
+
+
+        // Fungsi untuk generate nomor RM otomatis
+        function generateMedicalRecord() {
+            let newRM;
+            do {
+                newRM = Math.floor(100000 + Math.random() * 900000).toString(); // 6 digit random
+            } while (usedMedicalRecords.has(newRM));
+            
+            return newRM;
+        }
+        
+        // Fungsi untuk update pilihan dokter berdasarkan poliklinik
+        function updateDokterOptions(poliklinikValue, selectElementId) {
+            const dokterSelect = document.getElementById(selectElementId);
+            dokterSelect.innerHTML = '<option value="">Pilih dokter</option>';
+            
+            if (poliklinikValue && dokterData[poliklinikValue]) {
+                dokterData[poliklinikValue].forEach(dokter => {
+                    const option = document.createElement('option');
+                    option.value = dokter;
+                    option.textContent = dokter;
+                    dokterSelect.appendChild(option);
+                });
+                dokterSelect.disabled = false;
+            } else {
+                dokterSelect.disabled = true;
+            }
+        }
+        
+        // Fungsi untuk populate semua dokter (untuk rawat inap)
+        function populateAllDokter(selectElementId) {
+            const dokterSelect = document.getElementById(selectElementId);
+            dokterSelect.innerHTML = '<option value="">Pilih dokter penanggungjawab</option>';
+            
+            // Gabungkan semua dokter dari semua poliklinik
+            const allDokter = [];
+            Object.values(dokterData).forEach(dokterList => {
+                allDokter.push(...dokterList);
+            });
+            
+            // Hapus duplikat dan sort
+            const uniqueDokter = [...new Set(allDokter)].sort();
+            
+            uniqueDokter.forEach(dokter => {
+                const option = document.createElement('option');
+                option.value = dokter;
+                option.textContent = dokter;
+                dokterSelect.appendChild(option);
+            });
+        }
+        
+        window.onload = function() {
+            // Login form handler
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                if (username === 'admin' && password === 'admin123') {
+                    document.getElementById('loginPage').classList.add('hidden');
+                    document.getElementById('mainApp').classList.remove('hidden');
+                    showPage('dashboard'); // Show dashboard by default
+                } else {
+                    alert('Username atau password salah!');
+                }
+            });
+            
+            // Form pendaftaran handler
+            document.getElementById('formPendaftaran').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Ambil nilai dari form
+                const noRM = document.getElementById('noRM').value.trim();
+                const nama = document.getElementById('nama').value.trim();
+                const tglLahir = document.getElementById('tglLahir').value;
+                const jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked')?.value;
+                const alamat = document.getElementById('alamat').value.trim();
+                const noTelepon = document.getElementById('noTelepon').value.trim();
+                const poli = document.getElementById('poli').value;
+                
+                // Validasi input
+                if (!noRM || !nama || !tglLahir || !jenisKelamin || !alamat || !noTelepon || !poli) {
+                    alert('Harap lengkapi semua field.');
+                    return;
+                }
+                
+                // Cek apakah No. RM sudah ada
+                if (pasienList.some(pasien => pasien.noRM === noRM)) {
+                    alert('No. RM sudah terdaftar. Gunakan nomor yang berbeda.');
+                    return;
+                }
+                
+                // Buat objek data pasien
+                const dataPasien = { noRM, nama, tglLahir, jenisKelamin, alamat, noTelepon, poli };
+                
+                // Tambahkan ke array
+                pasienList.push(dataPasien);
+                
+                // Kosongkan form
+                resetForm();
+                
+                // Pindah ke halaman data pasien
+                showPage('dataPasien');
+                
+                alert('Pasien berhasil didaftarkan!');
+            });
+            
+            // Form rawat jalan handler
+            document.getElementById('formRawatJalan').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(e.target);
+                const noRM = formData.get('noRM').trim();
+                const namaPasien = formData.get('namaPasien').trim();
+                const nik = formData.get('nik').trim();
+                const tanggalLahir = formData.get('tanggalLahir');
+                const alamat = formData.get('alamat').trim();
+                const jenisKelamin = formData.get('jenisKelamin');
+                const caraBayar = formData.get('caraBayar');
+                const poliklinik = formData.get('poliklinik');
+                const dokter = formData.get('dokter');
+                const nomorTelepon = formData.get('nomorTelepon').trim();
+                const penanggungJawabPasien = formData.get('penanggungJawabPasien').trim();
+                const statusPenanggungJawab = formData.get('statusPenanggungJawab');
+                const keluhanPasien = formData.get('keluhanPasien').trim();
+                const kodeICD10 = formData.get('kodeICD10').trim();
+                
+                // Validasi input wajib
+                if (!noRM || !namaPasien || !nik || !tanggalLahir || !alamat || !jenisKelamin || !caraBayar || !poliklinik || !dokter || !nomorTelepon) {
+                    alert('Harap lengkapi semua field yang wajib diisi (*).');
+                    return;
+                }
+                
+                // Tandai nomor RM sebagai sudah digunakan
+                usedMedicalRecords.add(noRM);
+                
+                // Buat objek data rawat jalan
+                const dataRJ = { 
+                    noRM,
+                    namaPasien,
+                    nik,
+                    tanggalLahir, 
+                    alamat, 
+                    jenisKelamin, 
+                    caraBayar, 
+                    poliklinik,
+                    dokter, 
+                    nomorTelepon,
+                    penanggungJawabPasien,
+                    statusPenanggungJawab,
+                    keluhanPasien,
+                    kodeICD10,
+                    tanggalDaftar: new Date().toLocaleDateString('id-ID')
+                };
+                
+                // Tambahkan ke array rawat jalan
+                dataRawatJalan.push(dataRJ);
+                
+                // Tambahkan ke array gabungan dengan penanda asal
+                const dataGabungan = {
+                    ...dataRJ,
+                    asalPasien: 'Rawat Jalan',
+                    id: Date.now() + Math.random() // ID unik
+                };
+                allPasienData.push(dataGabungan);
+                renderPasienTable();
+
+                // Update dashboard statistics
+                updateDashboardStatistics();
+                
+                // Reset form dan generate nomor RM baru
+                resetFormRawatJalan();
+                
+                alert('Data rawat jalan berhasil disimpan!');
+            });
+            
+            // Form rawat inap handler
+            document.getElementById('formRawatInap').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(e.target);
+                const noRM = formData.get('noRM').trim();
+                const namaPasien = formData.get('namaPasien').trim();
+                const tanggalLahir = formData.get('tanggalLahir');
+                const alamat = formData.get('alamat').trim();
+                const jenisKelamin = formData.get('jenisKelamin');
+                const caraBayar = formData.get('caraBayar');
+                const bangsal = formData.get('bangsal');
+                const dokterPenanggungJawab = formData.get('dokterPenanggungJawab');
+                const tanggalMasuk = formData.get('tanggalMasuk');
+                const jamMasuk = formData.get('jamMasuk');
+                const kodeICD10 = formData.get('kodeICD10').trim();
+                const kodeICD9 = formData.get('kodeICD9').trim();
+                const diagnosaMasuk = formData.get('diagnosaMasuk').trim();
+                const anamnesa = formData.get('anamnesa').trim();
+                
+                // Validasi input wajib
+                if (!noRM || !namaPasien || !tanggalLahir || !alamat || !jenisKelamin || !caraBayar || !bangsal || !dokterPenanggungJawab || !tanggalMasuk || !jamMasuk) {
+                    alert('Harap lengkapi semua field yang wajib diisi (*).');
+                    return;
+                }
+                
+                // Tandai nomor RM sebagai sudah digunakan
+                usedMedicalRecords.add(noRM);
+                
+                // Buat objek data rawat inap
+                const dataRI = { 
+                    noRM,
+                    namaPasien, 
+                    tanggalLahir, 
+                    alamat, 
+                    jenisKelamin, 
+                    caraBayar, 
+                    bangsal,
+                    dokterPenanggungJawab,
+                    tanggalMasuk,
+                    jamMasuk,
+                    kodeICD10,
+                    kodeICD9,
+                    diagnosaMasuk,
+                    anamnesa,
+                    tanggalDaftar: new Date().toLocaleDateString('id-ID')
+                };
+                
+                // Tambahkan ke array rawat inap
+                dataRawatInap.push(dataRI);
+                
+                // Tambahkan ke array gabungan dengan penanda asal
+                const dataGabungan = {
+                    ...dataRI,
+                    asalPasien: 'Rawat Inap',
+                    id: Date.now() + Math.random() // ID unik
+                };
+                allPasienData.push(dataGabungan);
+                renderPasienTable();
+
+                // Update dashboard statistics
+                updateDashboardStatistics();
+                
+                // Reset form dan generate nomor RM baru
+                resetFormRawatInap();
+                
+                alert('Data rawat inap berhasil disimpan!');
+            });
+            
+            // Form IGD handler
+            document.getElementById('formIGD').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(e.target);
+                const namaPasien = formData.get('namaPasien').trim();
+                const nik = formData.get('nik').trim();
+                const tanggalLahir = formData.get('tanggalLahir');
+                const alamat = formData.get('alamat').trim();
+                const jenisKelamin = formData.get('jenisKelamin');
+                const caraBayar = formData.get('caraBayar');
+                const poliklinik = formData.get('poliklinik');
+                const nomorTelepon = formData.get('nomorTelepon').trim();
+                const penanggungJawabPasien = formData.get('penanggungJawabPasien').trim();
+                const statusPenanggungJawab = formData.get('statusPenanggungJawab');
+                const kondisiPasien = formData.get('kondisiPasien');
+                const kodeICD10 = formData.get('kodeICD10').trim();
+                const keluhanPasien = formData.get('keluhanPasien').trim();
+                
+                // Validasi input wajib
+                if (!namaPasien || !nik || !tanggalLahir || !alamat || !jenisKelamin || !caraBayar || !poliklinik || !nomorTelepon || !kondisiPasien) {
+                    alert('Harap lengkapi semua field yang wajib diisi (*).');
+                    return;
+                }
+                
+                // Generate nomor RM untuk IGD
+                const noRM = generateMedicalRecord();
+                usedMedicalRecords.add(noRM);
+                
+                // Buat objek data gawat darurat
+                const dataIGD = { 
+                    noRM,
+                    namaPasien,
+                    nik,
+                    tanggalLahir, 
+                    alamat, 
+                    jenisKelamin, 
+                    caraBayar, 
+                    poliklinik, 
+                    nomorTelepon,
+                    penanggungJawabPasien,
+                    statusPenanggungJawab,
+                    kondisiPasien,
+                    kodeICD10,
+                    keluhanPasien,
+                    tanggalDaftar: new Date().toLocaleDateString('id-ID'),
+                    jamMasuk: new Date().toLocaleTimeString('id-ID')
+                };
+                
+                // Tambahkan ke array gawat darurat
+                dataGawatDarurat.push(dataIGD);
+                
+                // Tambahkan ke array gabungan dengan penanda asal
+                const dataGabungan = {
+                    ...dataIGD,
+                    asalPasien: 'Gawat Darurat',
+                    id: Date.now() + Math.random() // ID unik
+                };
+                allPasienData.push(dataGabungan);
+                renderPasienTable();
+
+                // Update dashboard statistics
+                updateDashboardStatistics();
+                
+                // Reset form
+                e.target.reset();
+                
+                alert('Data gawat darurat berhasil disimpan!');
+            });
+            
+            // Form pelepasan informasi handler
+            document.getElementById('formPelepasan').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(e.target);
+                const namaPasien = formData.get('namaPasien').trim();
+                const noRM = formData.get('noRM').trim();
+                const jenisPembayaran = formData.get('jenisPembayaran');
+                const nomorJaminan = formData.get('nomorJaminan')?.trim();
+                const namaPenerima = formData.get('namaPenerima').trim();
+                const alamatPenerima = formData.get('alamatPenerima').trim();
+                const tanggalMinta = formData.get('tanggalMinta');
+                const keperluanPermintaan = formData.get('keperluanPermintaan').trim();
+                
+                // Ambil formulir yang dipilih
+                const formulirDilepas = [];
+                const checkboxes = document.querySelectorAll('input[name="formulirDilepas"]:checked');
+                checkboxes.forEach(checkbox => {
+                    formulirDilepas.push(checkbox.value);
+                });
+                
+                // Validasi input wajib
+                if (!namaPasien || !noRM || !jenisPembayaran || !namaPenerima || !alamatPenerima || !tanggalMinta || !keperluanPermintaan) {
+                    alert('Harap lengkapi semua field yang wajib diisi (*).');
+                    return;
+                }
+                
+                // Validasi nomor jaminan jika BPJS
+                if (jenisPembayaran === 'BPJS' && !nomorJaminan) {
+                    alert('Nomor jaminan kesehatan wajib diisi untuk pembayaran BPJS.');
+                    return;
+                }
+                
+                // Validasi minimal satu formulir dipilih
+                if (formulirDilepas.length === 0) {
+                    alert('Pilih minimal satu formulir yang akan dilepas.');
+                    return;
+                }
+                
+                // Buat objek data pelepasan informasi
+                const dataPelepasan = {
+                    namaPasien,
+                    noRM,
+                    jenisPembayaran,
+                    nomorJaminan: jenisPembayaran === 'BPJS' ? nomorJaminan : null,
+                    namaPenerima,
+                    alamatPenerima,
+                    formulirDilepas,
+                    tanggalMinta,
+                    keperluanPermintaan,
+                    namaPetugas: document.getElementById('namaPetugas').value,
+                    tanggalInput: new Date().toLocaleDateString('id-ID')
+                };
+                
+                // Simpan data (dalam implementasi nyata, data ini akan disimpan ke database)
+                console.log('Data Pelepasan Informasi:', dataPelepasan);
+                
+                // Reset form
+                resetFormPelepasan();
+                
+                alert('Data pelepasan informasi medis berhasil disimpan!');
+            });
+        };
+        
+        // Function untuk update statistik dashboard
+        function updateDashboardStatistics() {
+            const today = new Date().toLocaleDateString('id-ID');
+            
+            // Hitung pasien hari ini berdasarkan tanggal daftar
+            const rawatJalanToday = allPasienData.filter(p => 
+                p.asalPasien === 'Rawat Jalan' && p.tanggalDaftar === today
+            ).length;
+            
+            const rawatInapToday = allPasienData.filter(p => 
+                p.asalPasien === 'Rawat Inap' && p.tanggalDaftar === today
+            ).length;
+            
+            const gawatDaruratToday = allPasienData.filter(p => 
+                p.asalPasien === 'Gawat Darurat' && p.tanggalDaftar === today
+            ).length;
+            
+            const totalToday = rawatJalanToday + rawatInapToday + gawatDaruratToday;
+            
+            // Update tampilan
+            document.getElementById('rawatJalanHariIni').textContent = rawatJalanToday;
+            document.getElementById('rawatInapHariIni').textContent = rawatInapToday;
+            document.getElementById('gawatDaruratHariIni').textContent = gawatDaruratToday;
+            document.getElementById('totalPasienHariIni').textContent = totalToday;
+        }
+        
+        // Navigation functions
+        function showPage(pageId) {
+            // Hide all pages with class 'page'
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+            // Show selected page
+            document.getElementById(pageId).classList.remove('hidden');
+            
+            // Initialize page-specific content
+            if (pageId === 'dashboard') {
+                // Update dashboard statistics
+                updateDashboardStatistics();
+            } else if (pageId === 'rawatJalan') {
+                // Generate nomor RM untuk rawat jalan jika belum ada
+                if (!document.getElementById('noRMRJ').value) {
+                    document.getElementById('noRMRJ').value = generateMedicalRecord();
+                }
+            } else if (pageId === 'rawatInap') {
+                // Generate nomor RM untuk rawat inap jika belum ada
+                if (!document.getElementById('noRMRI').value) {
+                    document.getElementById('noRMRI').value = generateMedicalRecord();
+                }
+                // Populate dokter options
+                populateAllDokter('dokterRI');
+            } else if (pageId === 'dataPasien') {
+                // Update data pasien dan statistik
+                updatePasienStatistics();
+                renderPasienTable();
+            }
+            
+            // Update active button styling
+            document.querySelectorAll('.nav-button').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-white', 'ring-opacity-60');
+            });
+            
+            // Add active styling to current button
+            const activeButton = document.querySelector(`button[onclick="showPage('${pageId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('ring-2', 'ring-white', 'ring-opacity-60');
+            }
+        }
+        
+        function logout() {
+            // Hide main app and show login page
+            document.getElementById('mainApp').classList.add('hidden');
+            document.getElementById('loginPage').classList.remove('hidden');
+            
+            // Clear login form inputs
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+        
+        // Function untuk reset form
+        function resetForm() {
+            document.getElementById('formPendaftaran').reset();
+        }
+        
+        // Variables untuk filter dan pencarian
+        let filteredPasienData = [];
+        
+        // Function untuk update statistik pasien
+        function updatePasienStatistics() {
+            const totalPasien = allPasienData.length;
+            const totalRawatJalan = allPasienData.filter(p => p.asalPasien === 'Rawat Jalan').length;
+            const totalRawatInap = allPasienData.filter(p => p.asalPasien === 'Rawat Inap').length;
+            const totalGawatDarurat = allPasienData.filter(p => p.asalPasien === 'Gawat Darurat').length;
+            
+            document.getElementById('totalPasien').textContent = totalPasien;
+            document.getElementById('totalRawatJalan').textContent = totalRawatJalan;
+            document.getElementById('totalRawatInap').textContent = totalRawatInap;
+            document.getElementById('totalGawatDarurat').textContent = totalGawatDarurat;
+        }
+        
+        // Function untuk render tabel pasien
+        function renderPasienTable(dataToRender = null) {
+            const tableBody = document.getElementById('pasienTableBody');
+            const data = dataToRender || allPasienData;
+            
+            tableBody.innerHTML = '';
+            
+            if (data.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="10" class="px-6 py-8 text-center text-gray-500">
+                            <div class="flex flex-col items-center">
+                                <svg class="w-12 h-12 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                                </svg>
+                                <p class="text-lg font-medium">Belum ada data pasien</p>
+                                <p class="text-sm">Daftarkan pasien baru untuk melihat data di sini</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            data.forEach((pasien, index) => {
+                // Tentukan warna badge berdasarkan asal pasien
+                let badgeClass = '';
+                switch(pasien.asalPasien) {
+                    case 'Rawat Jalan':
+                        badgeClass = 'bg-teal-100 text-teal-800';
+                        break;
+                    case 'Rawat Inap':
+                        badgeClass = 'bg-indigo-100 text-indigo-800';
+                        break;
+                    case 'Gawat Darurat':
+                        badgeClass = 'bg-red-100 text-red-800';
+                        break;
+                    default:
+                        badgeClass = 'bg-gray-100 text-gray-800';
+                }
+                
+                const row = `<tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${index + 1}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">${pasien.noRM}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${pasien.namaPasien}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${pasien.tanggalLahir}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${pasien.jenisKelamin}</td>
+                    <td class="px-6 py-4 text-sm text-gray-900 max-w-xs truncate" title="${pasien.alamat}">${pasien.alamat}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${pasien.nomorTelepon || pasien.noTelepon || '-'}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${badgeClass}">
+                            ${pasien.asalPasien}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${pasien.tanggalDaftar}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button onclick="lihatDetailPasien('${pasien.id}')" class="text-blue-600 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-3 py-1 rounded-lg transition duration-200 text-xs">
+                                Detail
+                            </button>
+                            <button onclick="hapusPasienData('${pasien.id}')" class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-lg transition duration-200 text-xs">
+                                Hapus
+                            </button>
+                        </div>
+                    </td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+        
+        // Function untuk filter data pasien berdasarkan asal
+        function filterPasienData() {
+            const filterValue = document.getElementById('filterAsalPasien').value;
+            const searchValue = document.getElementById('searchPasien').value.toLowerCase();
+            
+            let filteredData = allPasienData;
+            
+            // Filter berdasarkan asal pasien
+            if (filterValue) {
+                filteredData = filteredData.filter(pasien => pasien.asalPasien === filterValue);
+            }
+            
+            // Filter berdasarkan pencarian
+            if (searchValue) {
+                filteredData = filteredData.filter(pasien => 
+                    pasien.namaPasien.toLowerCase().includes(searchValue) ||
+                    pasien.noRM.toLowerCase().includes(searchValue)
+                );
+            }
+            
+            filteredPasienData = filteredData;
+            renderPasienTable(filteredData);
+        }
+        
+        // Function untuk pencarian data pasien
+        function searchPasienData() {
+            filterPasienData();
+        }
+        
+        // Function untuk reset filter
+        function resetFilter() {
+            document.getElementById('filterAsalPasien').value = '';
+            document.getElementById('searchPasien').value = '';
+            filteredPasienData = [];
+            renderPasienTable();
+        }
+        
+        // Function untuk hapus data pasien
+        function hapusPasienData(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus data pasien ini?')) {
+                // Hapus dari array gabungan
+                allPasienData = allPasienData.filter(pasien => pasien.id !== id);
+                
+                // Hapus dari array spesifik berdasarkan asal pasien
+                const pasienToDelete = allPasienData.find(p => p.id === id);
+                if (pasienToDelete) {
+                    switch(pasienToDelete.asalPasien) {
+                        case 'Rawat Jalan':
+                            dataRawatJalan = dataRawatJalan.filter(p => p.noRM !== pasienToDelete.noRM);
+                            break;
+                        case 'Rawat Inap':
+                            dataRawatInap = dataRawatInap.filter(p => p.noRM !== pasienToDelete.noRM);
+                            break;
+                        case 'Gawat Darurat':
+                            dataGawatDarurat = dataGawatDarurat.filter(p => p.noRM !== pasienToDelete.noRM);
+                            break;
+                    }
+                }
+                
+                // Update tampilan
+                updatePasienStatistics();
+                renderPasienTable();
+                
+                alert('Data pasien berhasil dihapus!');
+            }
+        }
+        
+        // Function untuk melihat detail pasien
+        function lihatDetailPasien(id) {
+            const pasien = allPasienData.find(p => p.id === id);
+            if (!pasien) {
+                alert('Data pasien tidak ditemukan!');
+                return;
+            }
+            
+            let detailInfo = `
+                <div class="space-y-3">
+                    <h3 class="text-lg font-semibold text-gray-800">Detail Pasien</h3>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div><strong>No. RM:</strong> ${pasien.noRM}</div>
+                        <div><strong>Nama:</strong> ${pasien.namaPasien}</div>
+                        <div><strong>Tanggal Lahir:</strong> ${pasien.tanggalLahir}</div>
+                        <div><strong>Jenis Kelamin:</strong> ${pasien.jenisKelamin}</div>
+                        <div><strong>Alamat:</strong> ${pasien.alamat}</div>
+                        <div><strong>No. Telepon:</strong> ${pasien.nomorTelepon || pasien.noTelepon || '-'}</div>
+                        <div><strong>Cara Bayar:</strong> ${pasien.caraBayar}</div>
+                        <div><strong>Asal Pasien:</strong> ${pasien.asalPasien}</div>
+                        <div><strong>Tanggal Daftar:</strong> ${pasien.tanggalDaftar}</div>
+            `;
+            
+            // Tambahan info spesifik berdasarkan asal pasien
+            if (pasien.asalPasien === 'Rawat Jalan') {
+                detailInfo += `
+                        <div><strong>Poliklinik:</strong> ${pasien.poliklinik}</div>
+                        <div><strong>Dokter:</strong> ${pasien.dokter}</div>
+                        <div><strong>Wali Pasien:</strong> ${pasien.waliPasien || '-'}</div>
+                `;
+            } else if (pasien.asalPasien === 'Rawat Inap') {
+                detailInfo += `
+                        <div><strong>Bangsal:</strong> ${pasien.bangsal}</div>
+                        <div><strong>Dokter PJ:</strong> ${pasien.dokterPenanggungJawab}</div>
+                        <div><strong>Tanggal Masuk:</strong> ${pasien.tanggalMasuk}</div>
+                        <div><strong>Jam Masuk:</strong> ${pasien.jamMasuk}</div>
+                        <div><strong>Kode ICD 10:</strong> ${pasien.kodeICD10 || '-'}</div>
+                        <div><strong>Kode ICD 9:</strong> ${pasien.kodeICD9 || '-'}</div>
+                        <div><strong>Diagnosa Masuk:</strong> ${pasien.diagnosaMasuk || '-'}</div>
+                        <div><strong>Anamnesa:</strong> ${pasien.anamnesa || '-'}</div>
+                `;
+            } else if (pasien.asalPasien === 'Gawat Darurat') {
+                detailInfo += `
+                        <div><strong>Poliklinik:</strong> ${pasien.poliklinik}</div>
+                        <div><strong>Jam Masuk:</strong> ${pasien.jamMasuk}</div>
+                        <div><strong>Wali Pasien:</strong> ${pasien.waliPasien || '-'}</div>
+                `;
+            }
+            
+            detailInfo += `
+                    </div>
+                </div>
+            `;
+            
+            // Tampilkan dalam modal atau alert (untuk demo menggunakan alert)
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = detailInfo;
+            alert(`Detail Pasien:\n\nNo. RM: ${pasien.noRM}\nNama: ${pasien.namaPasien}\nAsal: ${pasien.asalPasien}\nTanggal Lahir: ${pasien.tanggalLahir}\nJenis Kelamin: ${pasien.jenisKelamin}\nAlamat: ${pasien.alamat}\nNo. Telepon: ${pasien.nomorTelepon || pasien.noTelepon || '-'}\nCara Bayar: ${pasien.caraBayar}\nTanggal Daftar: ${pasien.tanggalDaftar}`);
+        }
+        
+        // Function untuk reset form rawat jalan
+        function resetFormRawatJalan() {
+            document.getElementById('formRawatJalan').reset();
+            // Generate nomor RM baru
+            document.getElementById('noRMRJ').value = generateMedicalRecord();
+            // Reset pilihan dokter
+            document.getElementById('dokterRJ').innerHTML = '<option value="">Pilih dokter</option>';
+            document.getElementById('dokterRJ').disabled = true;
+        }
+        
+        // Function untuk reset form rawat inap
+        function resetFormRawatInap() {
+            document.getElementById('formRawatInap').reset();
+            // Generate nomor RM baru
+            document.getElementById('noRMRI').value = generateMedicalRecord();
+        }
+        
+        // Function untuk reset form gawat darurat
+        function resetFormGawatDarurat() {
+            document.getElementById('formIGD').reset();
+        }
+        
+        // Function untuk toggle field BPJS
+        function toggleBPJSField() {
+            const jenisPembayaran = document.getElementById('jenisPembayaran').value;
+            const bpjsField = document.getElementById('bpjsField');
+            const nomorJaminanInput = document.querySelector('input[name="nomorJaminan"]');
+            
+            if (jenisPembayaran === 'BPJS') {
+                bpjsField.classList.remove('hidden');
+                nomorJaminanInput.required = true;
+            } else {
+                bpjsField.classList.add('hidden');
+                nomorJaminanInput.required = false;
+                nomorJaminanInput.value = '';
+            }
+        }
+        
+        // Function untuk reset form pelepasan informasi
+        function resetFormPelepasan() {
+            document.getElementById('formPelepasan').reset();
+            // Hide BPJS field
+            document.getElementById('bpjsField').classList.add('hidden');
+            document.querySelector('input[name="nomorJaminan"]').required = false;
+            // Reset nama petugas
+            document.getElementById('namaPetugas').value = 'admin';
+        }
+        
+        // Functions untuk perhitungan statistik rumah sakit
+          function hitungGDR() {
+    const meninggal = parseFloat(document.getElementById('gdrMeninggal').value);
+    const keluar = parseFloat(document.getElementById('gdrKeluar').value);
+    const hasil = keluar > 0 ? (meninggal / keluar) * 1000 : 0;
+    document.getElementById('nilaiGDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilGDR').classList.remove('hidden');
+    document.getElementById('statusGDR').textContent = hasil > 45 ? 'Tinggi' : 'Normal';
+  }
+
+  function hitungNDR() {
+    const meninggal48 = parseFloat(document.getElementById('ndrMeninggal48').value);
+    const keluar = parseFloat(document.getElementById('ndrKeluar').value);
+    const hasil = keluar > 0 ? (meninggal48 / keluar) * 1000 : 0;
+    document.getElementById('nilaiNDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilNDR').classList.remove('hidden');
+    document.getElementById('statusNDR').textContent = hasil > 10 ? 'Tinggi' : 'Ideal';
+  }
+
+  function hitungMDR() {
+    const kematian = parseFloat(document.getElementById('mdrKematianIbu').value);
+    const kelahiran = parseFloat(document.getElementById('mdrKelahiranHidup').value);
+    const hasil = kelahiran > 0 ? (kematian / kelahiran) * 1000 : 0;
+    document.getElementById('nilaiMDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilMDR').classList.remove('hidden');
+  }
+
+  function hitungPDR() {
+    const kematianOp = parseFloat(document.getElementById('pdrKematianOperasi').value);
+    const tindakan = parseFloat(document.getElementById('pdrJumlahOperasi').value);
+    const hasil = tindakan > 0 ? (kematianOp / tindakan) * 1000 : 0;
+    document.getElementById('nilaiPDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilPDR').classList.remove('hidden');
+  }
+
+  function hitungNnDR() {
+    const kematianBayi = parseFloat(document.getElementById('nndrKematianBayi').value);
+    const kelahiran = parseFloat(document.getElementById('nndrKelahiranHidup').value);
+    const hasil = kelahiran > 0 ? (kematianBayi / kelahiran) * 1000 : 0;
+    document.getElementById('nilaiNnDR').textContent = hasil.toFixed(2);
+    document.getElementById('hasilNnDR').classList.remove('hidden');
+  }
+        // Function untuk membuat Grafik Barber Johnson
+        function updateBarberJohnsonChart() {
+            const namaRS = document.getElementById('namaRS').value || 'RS Umum Daerah';
+            const namaBangsal = document.getElementById('namaBangsal').value || 'Bangsal Melati';
+            const periode = parseInt(document.getElementById('periode').value);
+            const tahun = document.getElementById('tahun').value || '2024';
+            const bor = parseFloat(document.getElementById('inputBOR').value);
+            const los = parseFloat(document.getElementById('inputLOS').value);
+            const toi = parseFloat(document.getElementById('inputTOI').value);
+            const bto = parseFloat(document.getElementById('inputBTO').value);
+            
+            // Validasi input
+            if (isNaN(bor) || isNaN(los) || isNaN(toi) || isNaN(bto)) {
+                alert('Harap lengkapi semua nilai indikator dengan benar');
+                return;
+            }
+           function pilihInput(mode) {
+
+    document.getElementById("formInputMentah").classList.toggle("hidden", mode !== "mentah");
+  }
+
+  function hitungDariDataMentah() {
+    const hariPerawatan = parseFloat(document.getElementById('hariPerawatanMentah').value) || 0;
+    const lamaDirawat = parseFloat(document.getElementById('lamaDirawatMentah').value) || 0;
+    const jumlahTT = parseFloat(document.getElementById('jumlahTTMentah').value) || 0;
+    const periodeHari = parseFloat(document.getElementById('periodeHariMentah').value) || 0;
+    const pasienKeluarHidup = parseFloat(document.getElementById('pasienKeluarHidup').value) || 0;
+    const pasienKeluarMati = parseFloat(document.getElementById('pasienKeluarMati').value) || 0;
+
+    const totalPasienKeluar = pasienKeluarHidup + pasienKeluarMati;
+
+    if (jumlahTT === 0 || periodeHari === 0 || totalPasienKeluar === 0) {
+      alert("Data tidak lengkap atau ada nilai nol. Silakan periksa kembali.");
+      return;
+    }
+
+    const bor = (hariPerawatan / (jumlahTT * periodeHari)) * 100;
+    const avlos = lamaDirawat / totalPasienKeluar;
+    const toi = ((jumlahTT * periodeHari) - hariPerawatan) / totalPasienKeluar;
+    const bto = totalPasienKeluar / jumlahTT;
+
+
+
+    // Update grafik
+    updateBarberJohnsonChart();
+  }
+            // Update judul grafik
+            const periodeTeks = periode === 30 ? 'Bulanan' : periode === 90 ? 'Triwulan' : 'Tahunan';
+            document.getElementById('judulGrafik').textContent = 
+                `Grafik Barber Johnson - ${namaRS} - ${namaBangsal} - ${periodeTeks} ${tahun}`;
+            
+            // Update display nilai
+            document.getElementById('displayBOR').textContent = bor + '%';
+            document.getElementById('displayLOS').textContent = los + ' hari';
+            document.getElementById('displayTOI').textContent = toi + ' hari';
+            document.getElementById('displayBTO').textContent = bto + ' kali';
+            
+            // Auto adjust zoom jika diperlukan
+            const zoomAdjusted = autoAdjustZoom(los, toi);
+            
+            // Gambar grafik
+            drawBarberJohnsonChart(bor, los, toi, bto, periode);
+            
+            // Update interpretasi
+            updateInterpretasi(bor, los, toi, bto);
+            
+            // Tampilkan notifikasi jika zoom disesuaikan otomatis
+            if (zoomAdjusted) {
+                setTimeout(() => {
+                    alert('Zoom grafik telah disesuaikan otomatis untuk menampilkan titik data dengan lebih baik.');
+                }, 100);
+            }
+        }
+        
+        function drawBarberJohnsonChart(bor, los, toi, bto, periode) {
+            const canvas = document.getElementById('barberJohnsonChart');
+            const ctx = canvas.getContext('2d');
+          
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetWidth * 0.75; // Rasio 4:3
+
+       
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Pengaturan grafik
+            const margin = 80;
+            const chartWidth = canvas.width - 2 * margin;
+            const chartHeight = canvas.height - 2 * margin;
+            
+            // Skala sumbu dengan zoom - TOI (X), AvLOS (Y)
+            const maxTOI = maxTOIZoom / zoomScale;  // Sumbu X (TOI)
+            const maxLOS = maxLOSZoom / zoomScale; // Sumbu Y (AvLOS)
+            
+            // Fungsi konversi koordinat - TOI sebagai X, AvLOS sebagai Y
+            function toCanvasX(toi) {
+                return margin + (toi / maxTOI) * chartWidth;
+            }
+            
+            function toCanvasY(avlos) {
+                return canvas.height - margin - (avlos / maxLOS) * chartHeight;
+            }
+            
+            // Gambar grid dan sumbu
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.lineWidth = 1;
+            
+            // Grid vertikal (TOI)
+            for (let i = 0; i <= maxTOI; i++) {
+                const x = toCanvasX(i);
+                ctx.beginPath();
+                ctx.moveTo(x, margin);
+                ctx.lineTo(x, canvas.height - margin);
+                ctx.stroke();
+            }
+            
+            // Grid horizontal (AvLOS)
+            for (let i = 0; i <= maxLOS; i++) {
+                const y = toCanvasY(i);
+                ctx.beginPath();
+                ctx.moveTo(margin, y);
+                ctx.lineTo(canvas.width - margin, y);
+                ctx.stroke();
+            }
+            
+            // Sumbu utama
+            ctx.strokeStyle = '#374151';
+            ctx.lineWidth = 2;
+            
+            // Sumbu X (TOI)
+            ctx.beginPath();
+            ctx.moveTo(margin, canvas.height - margin);
+            ctx.lineTo(canvas.width - margin, canvas.height - margin);
+            ctx.stroke();
+            
+            // Sumbu Y (AvLOS)
+            ctx.beginPath();
+            ctx.moveTo(margin, margin);
+            ctx.lineTo(margin, canvas.height - margin);
+            ctx.stroke();
+            
+            // Label sumbu
+            ctx.fillStyle = '#374151';
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            
+            // Label sumbu X (TOI)
+            for (let i = 0; i <= maxTOI; i++) {
+                const x = toCanvasX(i);
+                ctx.fillText(i.toString(), x, canvas.height - margin + 20);
+            }
+            
+            // Label sumbu Y (AvLOS)
+            ctx.textAlign = 'right';
+            for (let i = 0; i <= maxLOS; i++) {
+                const y = toCanvasY(i);
+                ctx.fillText(i.toString(), margin - 10, y + 5);
+            }
+            
+            // Judul sumbu
+            ctx.font = '16px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('TOI (Turn Over Interval) - Hari', canvas.width / 2, canvas.height - 20);
+            
+            ctx.save();
+            ctx.translate(20, canvas.height / 2);
+            ctx.rotate(-Math.PI / 2);
+            ctx.fillText('AvLOS (Average Length of Stay) - Hari', 0, 0);
+            ctx.restore();
+            
+            // Gambar daerah efisiensi (hijau transparan)
+            ctx.fillStyle = 'rgba(34, 197, 94, 0.2)';
+            ctx.strokeStyle = '#22c55e';
+            ctx.lineWidth = 2;
+            
+            // Daerah efisiensi: TOI 1-3, AvLOS 3-12, BOR 75%
+            const efisiensiTOIMin = 1, efisiensiTOIMax = 3;
+            const efisiensiLOSMin = 3, efisiensiLOSMax = 12;
+            
+            // Koordinat titik bantu BOR 75%: AvLOS = 75/10 = 7.5, TOI = 10 - 7.5 = 2.5
+            const bor75AvLOS = 75 / 10; // 7.5
+            const bor75TOI = 10 - bor75AvLOS; // 2.5
+            
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(efisiensiTOIMin), toCanvasY(efisiensiLOSMin));
+            ctx.lineTo(toCanvasX(efisiensiTOIMax), toCanvasY(efisiensiLOSMin));
+            ctx.lineTo(toCanvasX(efisiensiTOIMax), toCanvasY(efisiensiLOSMax));
+            ctx.lineTo(toCanvasX(efisiensiTOIMin), toCanvasY(efisiensiLOSMax));
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            // Gambar garis bantu BOR
+            ctx.strokeStyle = '#3b82f6';
+            ctx.lineWidth = 2;
+            
+            // Garis BOR 60%: AvLOS = 60/10 = 6, TOI = 10 - 6 = 4
+            const bor60AvLOS = 60 / 10; // 6.0
+            const bor60TOI = 10 - bor60AvLOS; // 4.0
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(0), toCanvasY(0));
+            ctx.lineTo(toCanvasX(bor60TOI), toCanvasY(bor60AvLOS));
+            
+            // Perpanjang garis sampai batas grafik
+            const extendRatio = Math.max(maxTOI / bor60TOI, maxLOS / bor60AvLOS);
+            ctx.lineTo(toCanvasX(bor60TOI * extendRatio), toCanvasY(bor60AvLOS * extendRatio));
+            ctx.stroke();
+            
+            // Label BOR 60%
+            ctx.fillStyle = '#3b82f6';
+            ctx.font = '12px Arial';
+            ctx.fillText('BOR 60%', toCanvasX(bor60TOI * 0.8), toCanvasY(bor60AvLOS * 0.8) - 10);
+            
+            // Garis BOR 75%: AvLOS = 75/10 = 7.5, TOI = 10 - 7.5 = 2.5
+            ctx.strokeStyle = '#3b82f6';
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(0), toCanvasY(0));
+            ctx.lineTo(toCanvasX(bor75TOI), toCanvasY(bor75AvLOS));
+            
+            // Perpanjang garis sampai batas grafik
+            const extendRatio75 = Math.max(maxTOI / bor75TOI, maxLOS / bor75AvLOS);
+            ctx.lineTo(toCanvasX(bor75TOI * extendRatio75), toCanvasY(bor75AvLOS * extendRatio75));
+            ctx.stroke();
+            
+            // Label BOR 75%
+            ctx.fillText('BOR 75%', toCanvasX(bor75TOI * 0.8), toCanvasY(bor75AvLOS * 0.8) - 10);
+            
+            // Garis BOR 85%: AvLOS = 85/10 = 8.5, TOI = 10 - 8.5 = 1.5
+            const bor85AvLOS = 85 / 10; // 8.5
+            const bor85TOI = 10 - bor85AvLOS; // 1.5
+            ctx.strokeStyle = '#3b82f6';
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(0), toCanvasY(0));
+            ctx.lineTo(toCanvasX(bor85TOI), toCanvasY(bor85AvLOS));
+            
+            // Perpanjang garis sampai batas grafik
+            const extendRatio85 = Math.max(maxTOI / bor85TOI, maxLOS / bor85AvLOS);
+            ctx.lineTo(toCanvasX(bor85TOI * extendRatio85), toCanvasY(bor85AvLOS * extendRatio85));
+            ctx.stroke();
+            
+            // Label BOR 85%
+            ctx.fillText('BOR 85%', toCanvasX(bor85TOI * 0.6), toCanvasY(bor85AvLOS * 0.6) - 10);
+            
+            // Gambar garis bantu BTO
+            ctx.strokeStyle = '#8b5cf6';
+            ctx.lineWidth = 2;
+            
+            // Titik bantu BTO = periode / nilai BTO
+            const btoPeriodeTitik = periode / bto;
+            
+            // Garis BTO menghubungkan titik (btoPeriodeTitik, btoPeriodeTitik) dengan koordinat yang sama
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(btoPeriodeTitik), toCanvasY(0));
+            ctx.lineTo(toCanvasX(btoPeriodeTitik), toCanvasY(btoPeriodeTitik));
+            ctx.lineTo(toCanvasX(0), toCanvasY(btoPeriodeTitik));
+            ctx.stroke();
+            
+            // Label BTO
+            ctx.fillStyle = '#8b5cf6';
+            ctx.font = '12px Arial';
+            ctx.fillText(`BTO ${bto}`, toCanvasX(btoPeriodeTitik) + 5, toCanvasY(btoPeriodeTitik / 2));
+            
+            // Gambar batas TOI (garis vertikal)
+            ctx.strokeStyle = '#ef4444';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([5, 5]);
+            
+            // TOI = 1 (garis vertikal)
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(1), toCanvasY(0));
+            ctx.lineTo(toCanvasX(1), toCanvasY(maxLOS));
+            ctx.stroke();
+            
+            // TOI = 3 (garis vertikal)
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(3), toCanvasY(0));
+            ctx.lineTo(toCanvasX(3), toCanvasY(maxLOS));
+            ctx.stroke();
+            
+            // Gambar batas AvLOS (garis horizontal)
+            ctx.strokeStyle = '#f97316';
+            
+            // AvLOS = 3 (garis horizontal)
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(0), toCanvasY(3));
+            ctx.lineTo(toCanvasX(maxTOI), toCanvasY(3));
+            ctx.stroke();
+            
+            // AvLOS = 12 (garis horizontal)
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(0), toCanvasY(12));
+            ctx.lineTo(toCanvasX(maxTOI), toCanvasY(12));
+            ctx.stroke();
+            
+            ctx.setLineDash([]);
+            
+            // Gambar titik data rumah sakit - koordinat (TOI, AvLOS)
+            ctx.fillStyle = '#dc2626';
+            ctx.beginPath();
+            ctx.arc(toCanvasX(toi), toCanvasY(los), 8, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Label titik data
+            ctx.fillStyle = '#dc2626';
+            ctx.font = 'bold 12px Arial';
+            ctx.textAlign = 'left';
+            ctx.fillText(`RS (${toi}, ${los})`, toCanvasX(toi) + 15, toCanvasY(los) - 10);
+        }
+        
+        function updateInterpretasi(bor, los, toi, bto) {
+            // Cek apakah titik berada di daerah efisiensi
+            // Daerah efisiensi: TOI 1-3, AvLOS 3-12, BOR 75%
+            const dalamDaerahEfisiensi = (toi >= 1 && toi <= 3) && (los >= 3 && los <= 12) && (bor >= 60 && bor <= 85);
+            
+            const statusElement = document.getElementById('statusEfisiensi');
+            const posisiElement = document.getElementById('posisiTitik');
+            const rekomendasiElement = document.getElementById('rekomendasi');
+            
+            // Update status efisiensi
+            if (dalamDaerahEfisiensi) {
+                statusElement.textContent = 'EFISIEN';
+                statusElement.className = 'font-medium text-green-600';
+            } else {
+                statusElement.textContent = 'TIDAK EFISIEN';
+                statusElement.className = 'font-medium text-red-600';
+            }
+            
+            // Update posisi titik - koordinat (TOI, AvLOS)
+            posisiElement.textContent = `TOI: ${toi} hari, AvLOS: ${los} hari`;
+            
+            // Update rekomendasi
+            let rekomendasi = [];
+            
+            if (bor < 60) {
+                rekomendasi.push('Tingkatkan BOR (kurang dari 60%)');
+            } else if (bor > 85) {
+                rekomendasi.push('Turunkan BOR (lebih dari 85%)');
+            }
+            
+            if (los < 3) {
+                rekomendasi.push('Pertimbangkan peningkatan AvLOS (kurang dari 3 hari)');
+            } else if (los > 12) {
+                rekomendasi.push('Kurangi AvLOS (lebih dari 12 hari)');
+            }
+            
+            if (toi < 1) {
+                rekomendasi.push('Tingkatkan TOI (kurang dari 1 hari)');
+            } else if (toi > 3) {
+                rekomendasi.push('Kurangi TOI (lebih dari 3 hari)');
+            }
+            
+            if (rekomendasi.length === 0) {
+                rekomendasi.push('Pertahankan kinerja yang baik');
+            }
+            
+            rekomendasiElement.textContent = rekomendasi.join('; ');
+        }
+        
+        // Functions untuk zoom control
+        function zoomIn() {
+            if (zoomScale < 5.0) { // Maksimal zoom 5x
+                zoomScale *= 1.5;
+                updateZoomLevel();
+                redrawChart();
+            }
+        }
+        
+        function zoomOut() {
+            if (zoomScale > 0.2) { // Minimal zoom 0.2x (zoom out 5x)
+                zoomScale /= 1.5;
+                updateZoomLevel();
+                redrawChart();
+            }
+        }
+        
+        function resetZoom() {
+            zoomScale = 1.0;
+            updateZoomLevel();
+            redrawChart();
+        }
+        
+        function updateZoomLevel() {
+            const zoomPercentage = Math.round(zoomScale * 100);
+            document.getElementById('zoomLevel').textContent = zoomPercentage + '%';
+        }
+        
+        function redrawChart() {
+            // Ambil nilai input saat ini dan gambar ulang grafik
+            const bor = parseFloat(document.getElementById('inputBOR').value) || 75;
+            const los = parseFloat(document.getElementById('inputLOS').value) || 6.5;
+            const toi = parseFloat(document.getElementById('inputTOI').value) || 2.5;
+            const bto = parseFloat(document.getElementById('inputBTO').value) || 45;
+            const periode = parseInt(document.getElementById('periode').value) || 30;
+            
+            drawBarberJohnsonChart(bor, los, toi, bto, periode);
+        }
+        
+        function autoAdjustZoom(los, toi) {
+            // Auto adjust zoom jika titik data berada di luar area grafik
+            const currentMaxTOI = maxTOIZoom / zoomScale;  // X axis
+            const currentMaxLOS = maxLOSZoom / zoomScale;  // Y axis
+            
+            let needAdjustment = false;
+            let newZoomScale = zoomScale;
+            
+            // Cek apakah perlu zoom out untuk menampilkan titik data
+            if (toi > currentMaxTOI * 0.9 || los > currentMaxLOS * 0.9) {
+                // Hitung zoom scale yang diperlukan dengan margin 20%
+                const requiredScaleForTOI = maxTOIZoom / (toi * 1.2);
+                const requiredScaleForLOS = maxLOSZoom / (los * 1.2);
+                newZoomScale = Math.min(requiredScaleForTOI, requiredScaleForLOS);
+                needAdjustment = true;
+            }
+            
+            // Batasi zoom scale
+            newZoomScale = Math.max(0.1, Math.min(5.0, newZoomScale));
+            
+            if (needAdjustment && Math.abs(newZoomScale - zoomScale) > 0.1) {
+                zoomScale = newZoomScale;
+                updateZoomLevel();
+                return true;
+            }
+            
+            return false;
+        }
+        
+        // Initialize grafik saat halaman dimuat
+        window.addEventListener('load', function() {
+            // Delay untuk memastikan semua elemen sudah dimuat
+            setTimeout(() => {
+                if (document.getElementById('barberJohnsonChart')) {
+                    updateBarberJohnsonChart();
+                    
+                    // Tambahkan event listener untuk mouse wheel zoom
+                    const canvas = document.getElementById('barberJohnsonChart');
+                    canvas.addEventListener('wheel', function(e) {
+                        e.preventDefault();
+                        
+                        if (e.deltaY < 0) {
+                            // Scroll up = zoom in
+                            zoomIn();
+                        } else {
+                            // Scroll down = zoom out
+                            zoomOut();
+                        }
+                    });
+                }
+            }, 500);
+        });
+        
+        // Function untuk hitung BOR (Bed Occupancy Rate)
+        function hitungBOR() {
+            const jumlahTT = parseFloat(document.getElementById('borJumlahTT').value);
+            const hariPerawatan = parseFloat(document.getElementById('borHariPerawatan').value);
+            const periodeHari = parseFloat(document.getElementById('borPeriodeHari').value);
+            
+            if (!jumlahTT || !hariPerawatan || !periodeHari) {
+                alert('Harap lengkapi semua field untuk menghitung BOR');
+                return;
+            }
+            
+            if (jumlahTT <= 0 || hariPerawatan < 0 || periodeHari <= 0) {
+                alert('Nilai harus lebih besar dari 0');
+                return;
+            }
+            
+            // Rumus BOR = (Hari Perawatan / (Jumlah TT × Periode Hari)) × 100%
+            const bor = (hariPerawatan / (jumlahTT * periodeHari)) * 100;
+            
+            // Tampilkan hasil
+            document.getElementById('nilaiBOR').textContent = bor.toFixed(2) + '%';
+            
+            // Tentukan status ideal atau tidak
+            const statusElement = document.getElementById('statusBOR');
+            if (bor >= 60 && bor <= 85) {
+                statusElement.textContent = 'IDEAL';
+                statusElement.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800';
+            } else {
+                statusElement.textContent = 'TIDAK IDEAL';
+                statusElement.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800';
+            }
+            
+            document.getElementById('hasilBOR').classList.remove('hidden');
+        }
+        
+        // Function untuk hitung AvLOS (Average Length of Stay)
+        function hitungAvLOS() {
+            const jumlahLama = parseFloat(document.getElementById('avlosJumlahLama').value);
+            const pasienKeluar = parseFloat(document.getElementById('avlosPasienKeluar').value);
+            
+            if (!jumlahLama || !pasienKeluar) {
+                alert('Harap lengkapi semua field untuk menghitung AvLOS');
+                return;
+            }
+            
+            if (jumlahLama < 0 || pasienKeluar <= 0) {
+                alert('Nilai harus valid (pasien keluar > 0)');
+                return;
+            }
+            
+            // Rumus AvLOS = Jumlah Lama Dirawat / Jumlah Pasien Keluar
+            const avlos = jumlahLama / pasienKeluar;
+            
+            // Tampilkan hasil
+            document.getElementById('nilaiAvLOS').textContent = avlos.toFixed(2) + ' hari';
+            
+            // Tentukan status ideal atau tidak (6-9 hari)
+            const statusElement = document.getElementById('statusAvLOS');
+            if (avlos >= 6 && avlos <= 9) {
+                statusElement.textContent = 'IDEAL';
+                statusElement.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800';
+            } else {
+                statusElement.textContent = 'TIDAK IDEAL';
+                statusElement.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800';
+            }
+            
+            document.getElementById('hasilAvLOS').classList.remove('hidden');
+        }
+        
+        // Function untuk hitung TOI (Turn Over Interval)
+        function hitungTOI() {
+            const jumlahTT = parseFloat(document.getElementById('toiJumlahTT').value);
+            const periode = parseFloat(document.getElementById('toiPeriode').value);
+            const hariPerawatan = parseFloat(document.getElementById('toiHariPerawatan').value);
+            const pasienKeluar = parseFloat(document.getElementById('toiPasienKeluar').value);
+            
+            if (!jumlahTT || !periode || !hariPerawatan || !pasienKeluar) {
+                alert('Harap lengkapi semua field untuk menghitung TOI');
+                return;
+            }
+            
+            if (jumlahTT <= 0 || periode <= 0 || hariPerawatan < 0 || pasienKeluar <= 0) {
+                alert('Nilai harus valid dan lebih besar dari 0');
+                return;
+            }
+            
+            // Rumus TOI = ((Jumlah TT × Periode) - Hari Perawatan) / Jumlah Pasien Keluar
+            const toi = ((jumlahTT * periode) - hariPerawatan) / pasienKeluar;
+            
+            // Tampilkan hasil
+            document.getElementById('nilaiTOI').textContent = toi.toFixed(2) + ' hari';
+            
+            // Tentukan status ideal atau tidak (1-3 hari)
+            const statusElement = document.getElementById('statusTOI');
+            if (toi >= 1 && toi <= 3) {
+                statusElement.textContent = 'IDEAL';
+                statusElement.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800';
+            } else {
+                statusElement.textContent = 'TIDAK IDEAL';
+                statusElement.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800';
+            }
+            
+            document.getElementById('hasilTOI').classList.remove('hidden');
+        }
+        
+        // Function untuk hitung BTO (Bed Turn Over)
+        function hitungBTO() {
+            const pasienKeluar = parseFloat(document.getElementById('btoPasienKeluar').value);
+            const jumlahTT = parseFloat(document.getElementById('btoJumlahTT').value);
+            
+            if (!pasienKeluar || !jumlahTT) {
+                alert('Harap lengkapi semua field untuk menghitung BTO');
+                return;
+            }
+            
+            if (pasienKeluar <= 0 || jumlahTT <= 0) {
+                alert('Nilai harus lebih besar dari 0');
+                return;
+            }
+            
+            // Rumus BTO = Jumlah Pasien Keluar / Jumlah Tempat Tidur
+            const bto = pasienKeluar / jumlahTT;
+            
+            // Tampilkan hasil
+            document.getElementById('nilaiBTO').textContent = bto.toFixed(2) + ' kali';
+            
+            // Tentukan status ideal atau tidak
+            // Ideal: 40-50 kali per tahun atau 3-4 kali per bulan
+            // Asumsi input adalah data bulanan, jadi ideal 3-4 kali
+            const statusElement = document.getElementById('statusBTO');
+            if (bto >= 3 && bto <= 4) {
+                statusElement.textContent = 'IDEAL (per bulan)';
+                statusElement.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800';
+            } else if (bto >= 40 && bto <= 50) {
+                statusElement.textContent = 'IDEAL (per tahun)';
+                statusElement.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800';
+            } else {
+                statusElement.textContent = 'TIDAK IDEAL';
+                statusElement.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800';
+            }
+            
+            document.getElementById('hasilBTO').classList.remove('hidden');
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ab9114201efdc4',t:'MTc1NDQ1MjE5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
         <div id="grafikBarberJohnson" class="page page-content p-8 hidden">
             <div class="max-w-7xl mx-auto">
                 <div class="mb-8">
