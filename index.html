@@ -2214,7 +2214,7 @@
                 alert('Harap lengkapi semua nilai indikator dengan benar');
                 return;
             }
-            function pilihInput(mode) {
+           function pilihInput(mode) {
     document.getElementById("formInputLangsung").classList.toggle("hidden", mode !== "langsung");
     document.getElementById("formInputMentah").classList.toggle("hidden", mode !== "mentah");
   }
@@ -2239,12 +2239,13 @@
     const toi = ((jumlahTT * periodeHari) - hariPerawatan) / totalPasienKeluar;
     const bto = totalPasienKeluar / jumlahTT;
 
-    // Tampilkan hasil ke input indikator utama
+    // Masukkan ke input indikator langsung
     document.getElementById('inputBOR').value = bor.toFixed(2);
     document.getElementById('inputLOS').value = avlos.toFixed(2);
     document.getElementById('inputTOI').value = toi.toFixed(2);
     document.getElementById('inputBTO').value = bto.toFixed(2);
 
+    // Update grafik
     updateBarberJohnsonChart();
   }
             // Update judul grafik
