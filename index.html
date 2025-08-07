@@ -2268,28 +2268,7 @@
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Grafik Barber Johnson</h2>
                     <p class="text-gray-600">Analisis efisiensi tempat tidur rumah sakit dengan koordinat Cartesian</p>
                 </div>
-                <!-- Toggle Pilihan Input -->
-<div class="flex space-x-2 mb-4">
-  <button onclick="pilihInput('mentah')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Input Data Mentah</button>
-</div>
-
-
-<button id="btnLangsung" onclick="pilihInput('langsung')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Input Indikator</button>
-  <button id="btnMentah" onclick="pilihInput('mentah')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Input Data Mentah</button>
-<!-- Form Input Mentah -->
-<div id="formInputMentah" class="space-y-4 hidden mt-6">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-    <input id="hariPerawatanMentah" type="number" placeholder="Jumlah Hari Perawatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="lamaDirawatMentah" type="number" placeholder="Jumlah Lama Dirawat" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="jumlahTTMentah" type="number" placeholder="Jumlah Tempat Tidur" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="periodeHariMentah" type="number" placeholder="Periode Hari" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="pasienKeluarHidup" type="number" placeholder="Jumlah Pasien Keluar Hidup" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="pasienKeluarMati" type="number" placeholder="Jumlah Pasien Keluar Mati" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-  </div>
-  <button onclick="hitungDariDataMentah()" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg w-full">
-    Hitung Indikator & Tampilkan Grafik
-  </button>
-</div>
+               
                 <!-- Input Form untuk Data Indikator -->
                 <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
                     <h3 class="text-xl font-semibold text-gray-800 mb-6">Input Data Indikator Rumah Sakit</h3>
@@ -3904,39 +3883,7 @@ canvas.height = canvas.offsetWidth * 0.75; // Rasio 4:3
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Grafik Barber Johnson</h2>
                     <p class="text-gray-600">Analisis efisiensi tempat tidur rumah sakit dengan koordinat Cartesian</p>
                 </div>
-                <!-- Toggle Pilihan Input -->
-<div class="flex space-x-2 mb-4">
-  <button onclick="pilihInput('langsung')" class="bg-blue-500 text-white px-4 py-2 rounded-md">Input Indikator</button>
-  <button onclick="pilihInput('mentah')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md">Input Data Mentah</button>
-</div>
 
-<!-- Form Input Langsung -->
-<div id="formInputLangsung" class="space-y-4">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-    <input id="inputBOR" type="number" step="any" placeholder="BOR (%)" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="inputLOS" type="number" step="any" placeholder="AvLOS (Hari)" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="inputTOI" type="number" step="any" placeholder="TOI (Hari)" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="inputBTO" type="number" step="any" placeholder="BTO (x)" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-  </div>
-  <button onclick="updateBarberJohnsonChart()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg w-full">
-    Tampilkan Grafik
-  </button>
-</div>
-
-<!-- Form Input Mentah -->
-<div id="formInputMentah" class="space-y-4 hidden mt-6">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-    <input id="hariPerawatanMentah" type="number" placeholder="Jumlah Hari Perawatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="lamaDirawatMentah" type="number" placeholder="Jumlah Lama Dirawat" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="jumlahTTMentah" type="number" placeholder="Jumlah Tempat Tidur" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="periodeHariMentah" type="number" placeholder="Periode Hari" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="pasienKeluarHidup" type="number" placeholder="Jumlah Pasien Keluar Hidup" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-    <input id="pasienKeluarMati" type="number" placeholder="Jumlah Pasien Keluar Mati" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-  </div>
-  <button onclick="hitungDariDataMentah()" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg w-full">
-    Hitung Indikator & Tampilkan Grafik
-  </button>
-</div>
                 <!-- Input Form untuk Data Indikator -->
                 <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
                     <h3 class="text-xl font-semibold text-gray-800 mb-6">Input Data Indikator Rumah Sakit</h3>
